@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>{{ search_keyword }}</h1>
+
+	{% for i in range(10) %}
+	<div class="">
+				<h1>{{ full_data[0][i] }}</h1>
+		<iframe style="align-content: center;"height="480" width="854"  src="https://www.youtube.com/embed/{{ full_data[1][i] }}"></iframe><br><br>
+	</div>
+	{% endfor %}
+
+</body>
+</html>
