@@ -10,17 +10,26 @@ import pandas as pd
 import pprint
 # import matplotlib.pyplot as plt
 # import ytcreds
+from flask import Flask,  request, render_template  # flask importing
 
 # Set up YouTube credentials
 DEVELOPER_KEY = 'AIzaSyCfquzfEUAqytSZ45OT-ayMZ5Mkc4ROqjM'
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
+app = Flask(__name__)
+
+
+# home url routing
+@app.route('/', methods=['GET'])
+def hello_world():
+    return render_template('index.html', full_data=[])
+
+
 youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=DEVELOPER_KEY)
 
 
-# -------------Build YouTube Search------------#
-def youtubeSearch(query, max_results=50, order="relevance", token=None, location=None, location_radius=None):
+def youtubeSearch(query, max_results=3, order="relevance", token=None, location=None, location_radius=None):
     # search upto max 50 videos based on query
     search_response = youtube.search().list(
         q=query,
@@ -32,25 +41,16 @@ def youtubeSearch(query, max_results=50, order="relevance", token=None, location
         location=location,
         locationRadius=location_radius).execute()
 
-    print("Search Completed...")
-    print("Total results: {0} \nResults per page: {1}".format(search_response['pageInfo']['totalResults'],
-                                                              search_response['pageInfo']['resultsPerPage']))
-    print("Example output per item, snippet")
-    print(search_response['items'][0]['snippet'].keys())
-    # Assign first page of results (items) to item variable
     items = search_response['items']  # 50 "items"
 
     # Assign 1st results to title, channelId, datePublished then print
     title = items[0]['snippet']['title']
     channelId = items[0]['snippet']['channelId']
     datePublished = items[0]['snippet']['publishedAt']
-    print("First result is: \n Title: {0} \n Channel ID: {1} \n Published on: {2}".format(title, channelId,
-                                                                                          datePublished))
 
     return search_response
 
 
-# ------------------------------store and organise your results---------------------------#
 def storeResults(response):
     # create variables to store your values
     title = []
@@ -104,7 +104,7 @@ def storeResults(response):
                 print("Video titled {0}, on Channel {1} Dislikes Count is not available".format(
                     stats['items'][0]['snippet']['title'],
                     stats['items'][0]['snippet']['channelTitle']))
-                print(sta   ts['items'][0]['statistics'].keys())
+                print(stats['items'][0]['statistics'].keys())
                 dislikeCount.append("Not available")
 
             # Sometimes comments are disabled so if they exist append, if not append nothing...
@@ -129,37 +129,17 @@ def storeResults(response):
     return youtube_dict
 
 
-# Input query
-print("Please input your search query")
-q = input()
-# Run YouTube Search
-response = youtubeSearch(q)
-results = storeResults(response)
-# Display result titles
-# print()
-abc = "Top 3 results are: \n {0}, ({1}), \n {2}, ({3}),\n {4}, ({5})".format(results['title'][0],
-                                                                             results['channelTitle'][0],
-                                                                             results['title'][1],
-                                                                             results['channelTitle'][1],
-                                                                             results['title'][2],
-                                                                             results['channelTitle'][2])
-
-f = open('yt.html', 'w')
-f.write(str(abc.encode('utf-8')))
-f.close()
-# -------------------------Save results------------------------------#
-print("Input filename to store csv file")
-file = input() + ".csv"
+@app.route('/', methods=['POST'])
+def my_form_post():
+    search_keyword = request.form['text']  # searching keyword collect from text box
+    response = youtubeSearch(search_keyword)
+    results = storeResults(response)
+    print(results.keys())
+    print(results['title'][0])
+    return render_template('show.html', search_keyword=search_keyword.title(), full_data=results)
 
 
-def writeCSV(results, filename):
-    import csv
-    keys = sorted(results.keys())
-    with open(filename, "w", newline="", encoding="utf-8") as output:
-        writer = csv.writer(output, delimiter=",")
-        writer.writerow(keys)
-        writer.writerows(zip(*[results[key] for key in keys]))
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
-writeCSV(results, file)
-print("CSV file has been uploaded at: " + str(file))
