@@ -1,19 +1,16 @@
-# YouTube Extractor
-# Extract YouTube video statistics based on a search query
-# -------------------------------------------------
-
 # Import modules
 from apiclient.discovery import build
-from apiclient.errors import HttpError
-from oauth2client.tools import argparser
-import pandas as pd
-import pprint
+# from apiclient.errors import HttpError
+# from oauth2client.tools import argparser
+# import pandas as pd
+# import pprint
 # import matplotlib.pyplot as plt
-# import ytcreds
+
 from flask import Flask,  request, render_template  # flask importing
 
 # Set up YouTube credentials
-DEVELOPER_KEY = 'AIzaSyCfquzfEUAqytSZ45OT-ayMZ5Mkc4ROqjM'
+DEVELOPER_KEY = 'AIzaSyBvVApxxBXKOztbGJvKINYNywl0UsCXTbI'
+
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
@@ -29,8 +26,7 @@ def hello_world():
 youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=DEVELOPER_KEY)
 
 
-def youtubeSearch(query, max_results=3, order="relevance", token=None, location=None, location_radius=None):
-    # search upto max 50 videos based on query
+def youtubeSearch(query, max_results=1, order="relevance", token=None, location=None, location_radius=None):
     search_response = youtube.search().list(
         q=query,
         type="video",
@@ -129,14 +125,43 @@ def storeResults(response):
     return youtube_dict
 
 
+global results
+
+
 @app.route('/', methods=['POST'])
 def my_form_post():
+    global results
+    skill_set = []
+    full_data = []
+    title = []
+    like = []
+    views = []
+    dislike = []
+    video = []
     search_keyword = request.form['text']  # searching keyword collect from text box
-    response = youtubeSearch(search_keyword)
-    results = storeResults(response)
-    print(results.keys())
-    print(results['title'][0])
-    return render_template('show.html', search_keyword=search_keyword.title(), full_data=results)
+    if search_keyword.lower() == 'web development':
+        f = open('skill/web development.txt', 'r')
+        # g = open('skill/op.txt', 'w')
+        for skill in f:
+            skill_set.append(skill)
+            response = youtubeSearch(skill)
+            results = storeResults(response)
+            title.append(results['title'])
+            views.append(results['viewCount'])
+            like.append(results['likeCount'])
+            dislike.append(results['dislikeCount'])
+            video.append(results['videoId'])
+
+    else:
+        response = youtubeSearch(search_keyword)
+        results = storeResults(response)
+        title.append(results['title'])
+        views.append(results['viewCount'])
+        like.append(results['likeCount'])
+        dislike.append(results['dislikeCount'])
+        video.append(results['videoId'])
+    return render_template('show.html', search_keyword=search_keyword.title(), skill_set=skill_set,
+                           title=title, like=like, dislike=dislike, views=views, video=video, n=len(skill_set))
 
 
 if __name__ == '__main__':

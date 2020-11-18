@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7c4a125-9447-477e-b219-60ad46090879" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/show.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yt1.py" beforeDir="false" afterPath="$PROJECT_DIR$/yt1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ytcred" beforeDir="false" afterPath="$PROJECT_DIR$/ytcred" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -24,6 +25,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jurl7DoeDES4F3t295OMKWn6B7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,9 +36,35 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\YT search\skill" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.yt1">
+    <configuration name="scratch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="YT search" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="yt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -103,6 +131,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.yt1" />
+        <item itemvalue="Python.scratch" />
         <item itemvalue="Python.yt" />
         <item itemvalue="Python.ytsrch" />
       </list>
@@ -120,30 +149,34 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="416" y="146" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604996569572">
+    <state x="305" y="26" key="#Inspections" timestamp="1605078248857">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="416" y="146" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1604996569572" />
+    <state x="305" y="26" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1605078248857" />
+    <state x="416" y="146" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605664858786">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="416" y="146" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1605664858786" />
     <state x="347" y="49" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605003692902">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="347" y="49" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605003692902" />
-    <state width="1339" height="339" key="GridCell.Tab.0.bottom" timestamp="1605031161319">
+    <state width="1339" height="59" key="GridCell.Tab.0.bottom" timestamp="1605702974732">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="339" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605031161319" />
-    <state width="1339" height="339" key="GridCell.Tab.0.center" timestamp="1605031161319">
+    <state width="1339" height="59" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605702974732" />
+    <state width="1339" height="59" key="GridCell.Tab.0.center" timestamp="1605702974732">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="339" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605031161319" />
-    <state width="1339" height="339" key="GridCell.Tab.0.left" timestamp="1605031161319">
+    <state width="1339" height="59" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605702974732" />
+    <state width="1339" height="59" key="GridCell.Tab.0.left" timestamp="1605702974642">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="339" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605031161319" />
-    <state width="1339" height="339" key="GridCell.Tab.0.right" timestamp="1605031161319">
+    <state width="1339" height="59" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605702974641" />
+    <state width="1339" height="59" key="GridCell.Tab.0.right" timestamp="1605702974732">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="339" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605031161319" />
+    <state width="1339" height="59" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605702974732" />
     <state width="1339" height="324" key="GridCell.Tab.1.bottom" timestamp="1605004704611">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -160,13 +193,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1339" height="324" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1605004704610" />
+    <state x="74" y="0" key="SettingsEditor" timestamp="1605631185427">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="74" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605631185427" />
     <state x="337" y="42" width="675" height="655" key="StructurePopup" timestamp="1605000503083">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="337" y="42" width="675" height="655" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1605000503083" />
-    <state x="328" y="32" width="710" height="664" key="find.popup" timestamp="1604991429237">
+    <state x="328" y="32" width="710" height="664" key="find.popup" timestamp="1605197575470">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="328" y="32" width="710" height="664" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1604991429237" />
+    <state x="328" y="32" width="710" height="664" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1605197575470" />
   </component>
 </project>
