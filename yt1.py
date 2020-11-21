@@ -151,15 +151,28 @@ def my_form_post():
             like.append(results['likeCount'])
             dislike.append(results['dislikeCount'])
             video.append(results['videoId'])
+            print(title)
+            print(views)
+            print(like)
+            print(dislike)
+            print(video)
 
     else:
+        print('search keyword : ', search_keyword)
+        skill_set.append(search_keyword)
         response = youtubeSearch(search_keyword)
         results = storeResults(response)
         title.append(results['title'])
+        print(title)
         views.append(results['viewCount'])
+        print(views)
         like.append(results['likeCount'])
+        print(like)
         dislike.append(results['dislikeCount'])
+        print(dislike)
         video.append(results['videoId'])
+        print(video)
+
     return render_template('show.html', search_keyword=search_keyword.title(), skill_set=skill_set,
                            title=title, like=like, dislike=dislike, views=views, video=video, n=len(skill_set))
 

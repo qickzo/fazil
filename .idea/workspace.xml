@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7c4a125-9447-477e-b219-60ad46090879" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yt.py" beforeDir="false" afterPath="$PROJECT_DIR$/yt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yt1.py" beforeDir="false" afterPath="$PROJECT_DIR$/yt1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ytcred" beforeDir="false" afterPath="$PROJECT_DIR$/ytcred" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ytsrch.py" beforeDir="false" afterPath="$PROJECT_DIR$/ytsrch.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +34,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -131,8 +130,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.yt1" />
-        <item itemvalue="Python.scratch" />
         <item itemvalue="Python.yt" />
+        <item itemvalue="Python.scratch" />
         <item itemvalue="Python.ytsrch" />
       </list>
     </recent_temporary>
@@ -161,22 +160,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="347" y="49" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605003692902" />
-    <state width="1339" height="59" key="GridCell.Tab.0.bottom" timestamp="1605702974732">
+    <state x="410" y="59" key="FileChooserDialogImpl" timestamp="1605750210986">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="59" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605702974732" />
-    <state width="1339" height="59" key="GridCell.Tab.0.center" timestamp="1605702974732">
+    <state x="410" y="59" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605750210986" />
+    <state width="1339" height="3" key="GridCell.Tab.0.bottom" timestamp="1605882569970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="59" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605702974732" />
-    <state width="1339" height="59" key="GridCell.Tab.0.left" timestamp="1605702974642">
+    <state width="1339" height="3" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605882569970" />
+    <state width="1339" height="3" key="GridCell.Tab.0.center" timestamp="1605882569970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="59" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605702974641" />
-    <state width="1339" height="59" key="GridCell.Tab.0.right" timestamp="1605702974732">
+    <state width="1339" height="3" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605882569970" />
+    <state width="1339" height="3" key="GridCell.Tab.0.left" timestamp="1605882569970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="59" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605702974732" />
+    <state width="1339" height="3" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605882569970" />
+    <state width="1339" height="3" key="GridCell.Tab.0.right" timestamp="1605882569970">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1339" height="3" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605882569970" />
     <state width="1339" height="324" key="GridCell.Tab.1.bottom" timestamp="1605004704611">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -201,9 +204,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="337" y="42" width="675" height="655" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1605000503083" />
-    <state x="328" y="32" width="710" height="664" key="find.popup" timestamp="1605197575470">
+    <state x="328" y="32" width="710" height="664" key="find.popup" timestamp="1605794331571">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="328" y="32" width="710" height="664" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1605197575470" />
+    <state x="328" y="32" width="710" height="664" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1605794331571" />
   </component>
 </project>
