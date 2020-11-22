@@ -15,31 +15,31 @@
 <body>
 
 <div class="bg-light " style="font-size:60px;font-weight:bold;padding-left:30%;color:#3e0da1">{{ search_keyword }}</div>
-{% for i in range(5) %}
+{% for i in range(data_count) %}
 <div class="accordion" id="accordionExample">
     <div class="card">
         <div class="card-header" id="heading{{ i }}">
             <h2 class="mb-0">
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#btn_{{ i }}"
-                        aria-expanded="true" aria-controls="btn_{{ i }}">
-<!--                     -->
+                        aria-expanded="false" aria-controls="btn_{{ i }}">{{ complt_data[i]['skill'] }}
                 </button>
             </h2>
         </div>
-        <div id="btn_{{ i }}" class="" aria-labelledby="heading{{ i }}" data-parent="#accordionExample">
+        <div id="btn_{{ i }}" class="collapse" aria-labelledby="heading{{ i }}" data-parent="#accordionExample">
             <div class="card-body">
-
+            {% for j in range(5) %}
                 <div class="container bg-light p-7 border-primary text-primary mt-5 text-white">
-                    <h1>{{ title[i] }}</h1>
+                    <h1>{{ complt_data[i]['title'][j] }}</h1>
                     <div class="container m-5">
                         <iframe style="align-content: center;" height="480" width="854"
-                                src="https://www.youtube.com/embed/{{ v_id[i] }}"></iframe>
+                                src="https://www.youtube.com/embed/{{ complt_data[i]['v_id'][j] }}"></iframe>
                         <br><br>
                     </div>
-                    <h3>views:  {{ view_count[i] }}</h3><br>
-                    <h3>likes: {{ like_count[i] }}</h3><br>
-                    <h3>dislike: {{ dislike_count[i] }}</h3><br>
+                    <h3>views:  {{ complt_data[i]['view_count'][j] }}</h3><br>
+                    <h3>likes: {{ complt_data[i]['like_count'][j] }}</h3><br>
+                    <h3>dislike: {{ complt_data[i]['dislike_count'][j] }}</h3><br>
                 </div>
+                {% endfor %}
 
             </div>
         </div>

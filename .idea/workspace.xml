@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f7c4a125-9447-477e-b219-60ad46090879" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/show1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/show1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yt.py" beforeDir="false" afterPath="$PROJECT_DIR$/yt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yt1.py" beforeDir="false" afterPath="$PROJECT_DIR$/yt1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ytsrch.py" beforeDir="false" afterPath="$PROJECT_DIR$/ytsrch.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,14 +34,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop\YT search\skill" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.yt1">
+  <component name="RunManager" selected="Python.scratch">
     <configuration name="scratch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -64,7 +63,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="yt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="yt_Api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -76,7 +75,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yt.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\user\Desktop\YT search\yt_Api.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -85,7 +84,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="yt1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="yt_NApi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,7 +96,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yt1.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\user\Desktop\YT search\yt_NApi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,9 +128,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.yt1" />
-        <item itemvalue="Python.yt" />
         <item itemvalue="Python.scratch" />
+        <item itemvalue="Python.yt_NApi" />
+        <item itemvalue="Python.yt_Api" />
         <item itemvalue="Python.ytsrch" />
       </list>
     </recent_temporary>
@@ -164,22 +163,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="59" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605750210986" />
-    <state width="1339" height="3" key="GridCell.Tab.0.bottom" timestamp="1605882569970">
+    <state width="1339" height="531" key="GridCell.Tab.0.bottom" timestamp="1606064803314">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="3" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605882569970" />
-    <state width="1339" height="3" key="GridCell.Tab.0.center" timestamp="1605882569970">
+    <state width="1339" height="531" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606064803314" />
+    <state width="1339" height="531" key="GridCell.Tab.0.center" timestamp="1606064803314">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="3" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605882569970" />
-    <state width="1339" height="3" key="GridCell.Tab.0.left" timestamp="1605882569970">
+    <state width="1339" height="531" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606064803314" />
+    <state width="1339" height="531" key="GridCell.Tab.0.left" timestamp="1606064803313">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="3" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605882569970" />
-    <state width="1339" height="3" key="GridCell.Tab.0.right" timestamp="1605882569970">
+    <state width="1339" height="531" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606064803313" />
+    <state width="1339" height="531" key="GridCell.Tab.0.right" timestamp="1606064803314">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="3" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605882569970" />
+    <state width="1339" height="531" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606064803314" />
     <state width="1339" height="324" key="GridCell.Tab.1.bottom" timestamp="1605004704611">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -196,17 +195,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1339" height="324" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1605004704610" />
-    <state x="74" y="0" key="SettingsEditor" timestamp="1605631185427">
+    <state x="74" y="0" key="SettingsEditor" timestamp="1606011163271">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="74" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605631185427" />
+    <state x="74" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606011163271" />
     <state x="337" y="42" width="675" height="655" key="StructurePopup" timestamp="1605000503083">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="337" y="42" width="675" height="655" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1605000503083" />
-    <state x="328" y="32" width="710" height="664" key="find.popup" timestamp="1605794331571">
+    <state x="328" y="32" width="710" height="664" key="find.popup" timestamp="1606058100956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="328" y="32" width="710" height="664" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1605794331571" />
+    <state x="328" y="32" width="710" height="664" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1606058100956" />
   </component>
 </project>

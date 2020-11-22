@@ -10,25 +10,33 @@ from urllib.error import HTTPError
 
 app = Flask(__name__)
 
-full_data = {}
+title = []
+video_ids = []
+like_count = []
+dislike_count = []
+view_count = []
 
 
 def process(keyword):
     # print("search keyword : ", search_keyword)
+    full_data = {}
     try:
+        skill_set.append(keyword)
         html = urlopen(
             "https://www.youtube.com/results?search_query=" + keyword.replace(" ", ""))  # searching in youtube
         video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())  # collecting video ids from youtube
         title = []  # title list declaration for storing youtube video titles
         for VideoID in video_ids:
-
+            if video_ids.index(VideoID) == 2:
+                continue
             # print(
             #     "####################################################################################################################################\n\n")
             params = {"url": "https://www.youtube.com/watch?v=" + VideoID, "format": "json"}
             url = "https://www.youtube.com/oembed"
             query_string = urllib.parse.urlencode(params)
-            query_string.replace('https%3A%2F%2F', 'http://')
+            query_string = query_string.replace('https%3A%2F%2F', 'http://')
             url = url + "?" + query_string
+            print(url)
 
             with urllib.request.urlopen(url) as response:
                 response_text = response.read()
@@ -39,7 +47,6 @@ def process(keyword):
     finally:
         video_ids = video_ids[:5]
         # full_data.append(title[:10])
-        full_data.update({'video_ids': video_ids})
         # --------------------list declaretions-------------------------------------w
         v_id = []
         view_count = []
@@ -80,20 +87,30 @@ def hello_world():
 @app.route('/', methods=['POST'])
 def my_form_post():
     search_keyword = request.form['text']
+    global skill_set
+    skill_set = []
+    complt_data = []
     if search_keyword.lower() == 'web development':
         f = open('skill/web development.txt', 'r')
         # g = open('skill/op.txt', 'w')
-        skill_set = []
         for skill in f:
-            skill_set.append(skill)
-            full_data = process(skill)
-        print(full_data)
+            f_data = process(skill)
+            f_data.update({'skill': skill.upper()})
+            complt_data.append(f_data)
+        print(complt_data)
+        print(len(complt_data))
+        print(len(complt_data[0]))
     else:
-        full_data = process(search_keyword)
-    return  render_template('index.html')
-    # return render_template('show1.html', search_keyword=search_keyword.title(), full_data=full_data
-    #                        )
+        f_data = process(search_keyword)
+        f_data.update({'skill': search_keyword.upper()})
+        complt_data.append(f_data)
+        print(complt_data)
+        print(len(complt_data))
+        print(len(complt_data[0]))
+
+    # return  render_template('index.html')
+    return render_template('show1.html', search_keyword=search_keyword.title(), complt_data=complt_data,
+                           data_count=len(complt_data))
 
 
 app.run(debug=True)
-# print(process('html'))
