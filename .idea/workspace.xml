@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7c4a125-9447-477e-b219-60ad46090879" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/YT search.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/YT search.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/show1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/show1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yt.py" beforeDir="false" afterPath="$PROJECT_DIR$/yt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yt_NApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/yt_NApi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,13 +14,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/dilshadt101/YT-search" />
+        <option value="https://github.com/qickzo/YT" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1jurl7DoeDES4F3t295OMKWn6B7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -41,8 +49,8 @@
       <recent name="C:\Users\user\Desktop\YT search\skill" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.scratch">
-    <configuration name="scratch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.yt_NApi (1)">
+    <configuration name="scratch2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -54,7 +62,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -63,7 +71,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="yt_Api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -75,7 +83,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\user\Desktop\YT search\yt_Api.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -84,7 +92,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="yt_NApi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -96,7 +104,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\user\Desktop\YT search\yt_NApi.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="yt_NApi (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="YT search" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yt_NApi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -128,9 +157,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.scratch" />
-        <item itemvalue="Python.yt_NApi" />
-        <item itemvalue="Python.yt_Api" />
+        <item itemvalue="Python.test2" />
+        <item itemvalue="Python.yt_NApi (1)" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.scratch2" />
         <item itemvalue="Python.ytsrch" />
       </list>
     </recent_temporary>
@@ -151,34 +181,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="305" y="26" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1605078248857" />
-    <state x="416" y="146" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605664858786">
+    <state x="416" y="146" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606065204495">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="416" y="146" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1605664858786" />
+    <state x="416" y="146" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1606065204495" />
     <state x="347" y="49" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605003692902">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="347" y="49" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605003692902" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1606100522038">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1606100522038" />
     <state x="410" y="59" key="FileChooserDialogImpl" timestamp="1605750210986">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="59" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605750210986" />
-    <state width="1339" height="531" key="GridCell.Tab.0.bottom" timestamp="1606064803314">
+    <state width="1339" height="375" key="GridCell.Tab.0.bottom" timestamp="1606756954500">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="531" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606064803314" />
-    <state width="1339" height="531" key="GridCell.Tab.0.center" timestamp="1606064803314">
+    <state width="1339" height="375" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606756954500" />
+    <state width="1339" height="375" key="GridCell.Tab.0.center" timestamp="1606756954499">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="531" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606064803314" />
-    <state width="1339" height="531" key="GridCell.Tab.0.left" timestamp="1606064803313">
+    <state width="1339" height="375" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606756954499" />
+    <state width="1339" height="375" key="GridCell.Tab.0.left" timestamp="1606756954499">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="531" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606064803313" />
-    <state width="1339" height="531" key="GridCell.Tab.0.right" timestamp="1606064803314">
+    <state width="1339" height="375" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606756954499" />
+    <state width="1339" height="375" key="GridCell.Tab.0.right" timestamp="1606756954499">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="531" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606064803314" />
+    <state width="1339" height="375" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606756954499" />
     <state width="1339" height="324" key="GridCell.Tab.1.bottom" timestamp="1605004704611">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

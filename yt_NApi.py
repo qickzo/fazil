@@ -7,7 +7,6 @@ import json
 import requests
 from urllib.error import HTTPError
 
-
 app = Flask(__name__)
 
 title = []
@@ -15,55 +14,81 @@ video_ids = []
 like_count = []
 dislike_count = []
 view_count = []
-
+non_list_channel = ['UC1tVU8H153ZFO9eRsxdJlhA', 'UCeVMnSShP_Iviwkknt83cww', 'UC0LICD-FJ2FuA3FQ3ZiiLtw','UCl1Umy9WXb3I49JTMG3WoWw']
 
 def process(keyword):
-    # print("search keyword : ", search_keyword)
+
     full_data = {}
+    global rm_vid
+    rm_vid = []
     try:
         skill_set.append(keyword)
         html = urlopen(
-            "https://www.youtube.com/results?search_query=" + keyword.replace(" ", ""))  # searching in youtube
+            "https://www.youtube.com/results?search_query={}&sp=EgIYAg%253D%253D".format(keyword.replace(" ", "")))# searching in youtube
+        global video_ids
         video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())  # collecting video ids from youtube
+        video_ids = list(dict.fromkeys(video_ids))
+        global title
         title = []  # title list declaration for storing youtube video titles
-        for VideoID in video_ids:
-            if video_ids.index(VideoID) == 2:
-                continue
-            # print(
-            #     "####################################################################################################################################\n\n")
-            params = {"url": "https://www.youtube.com/watch?v=" + VideoID, "format": "json"}
-            url = "https://www.youtube.com/oembed"
-            query_string = urllib.parse.urlencode(params)
-            query_string = query_string.replace('https%3A%2F%2F', 'http://')
-            url = url + "?" + query_string
-            print(url)
 
-            with urllib.request.urlopen(url) as response:
-                response_text = response.read()
-                data = json.loads(response_text.decode())
-                title.append(data['title'])
-    except:
+    except urllib.error.HTTPError:
         pass
     finally:
-        video_ids = video_ids[:5]
-        # full_data.append(title[:10])
-        # --------------------list declaretions-------------------------------------w
+
+        channel_id = []
         v_id = []
         view_count = []
         like_count = []
         dislike_count = []
         for id in video_ids:
-            url = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=%s&t&key=AIzaSyAvp49alnVMEPxu-DVV1j8SSkowIrtLCjQ' % id
+            url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&part=contentDetails&id=%s&t&key=AIzaSyAvp49alnVMEPxu-DVV1j8SSkowIrtLCjQ' % id
+            # print(url)
             response = urlopen(url)
             raw_data = response.read()
             encoding = response.info().get_content_charset('utf8')  # JSON default
             data = json.loads(raw_data.decode(encoding))
             items = data['items']
             v_id.append(items[0]['id'])
+            channel_id.append(items[0]['snippet']['channelId'])
             statistics = items[0]['statistics']
+            title.append(items[0]['snippet']['title'])
+            t = items[0]['snippet']['title']
+            desc = items[0]['snippet']['description']
+
+            if 'hindi' in t.lower() :
+                rm_vid.append(id)
+            restrctkeywd = 'hindi|malayalam|urdu|bengali|telugu|tamil|gujarati|kannada|punjabi|marathi'
+            if re.findall(restrctkeywd, t.lower()) or re.findall(restrctkeywd, desc.lower()):
+                rm_vid.append(id)
             view_count.append(statistics['viewCount'])
             like_count.append(statistics['likeCount'])
             dislike_count.append(statistics['dislikeCount'])
+        # print('#########################################################################################################')
+        # print(len(title))
+        # print(len(video_ids))
+        # print(len(like_count))
+        # print(len(dislike_count))
+
+        for item in rm_vid:
+            if item in video_ids:
+                idx = video_ids.index(item)
+                channel_id.remove(channel_id[idx])
+                v_id.remove(v_id[idx])
+                video_ids.remove(video_ids[idx])
+                title.remove(title[idx])
+                like_count.remove(like_count[idx])
+                dislike_count.remove(dislike_count[idx])
+
+        for chnl in non_list_channel:
+            while chnl in channel_id:
+                cidx = channel_id.index(chnl)
+                channel_id.remove(channel_id[cidx])
+                v_id.remove(v_id[cidx])
+                video_ids.remove(video_ids[cidx])
+                title.remove(title[cidx])
+                like_count.remove(like_count[cidx])
+                dislike_count.remove(dislike_count[cidx])
+
         full_data.update({"title": title})
         full_data.update({"v_id": v_id})
         full_data.update({"view_count": view_count})
@@ -78,11 +103,6 @@ def hello_world():
     return render_template('index.html', full_data=[])
 
 
-# s = requests.Session()
-#
-# s.get('http://httpbin.org/cookies/set/sessioncookie/123456789')
-# r = s.get('http://httpbin.org/cookies')
-
 # url routing when button clicking
 @app.route('/', methods=['POST'])
 def my_form_post():
@@ -92,22 +112,14 @@ def my_form_post():
     complt_data = []
     if search_keyword.lower() == 'web development':
         f = open('skill/web development.txt', 'r')
-        # g = open('skill/op.txt', 'w')
         for skill in f:
-            f_data = process(skill)
+            f_data = process(skill.replace('\n', ''))
             f_data.update({'skill': skill.upper()})
             complt_data.append(f_data)
-        print(complt_data)
-        print(len(complt_data))
-        print(len(complt_data[0]))
     else:
         f_data = process(search_keyword)
         f_data.update({'skill': search_keyword.upper()})
         complt_data.append(f_data)
-        print(complt_data)
-        print(len(complt_data))
-        print(len(complt_data[0]))
-
     # return  render_template('index.html')
     return render_template('show1.html', search_keyword=search_keyword.title(), complt_data=complt_data,
                            data_count=len(complt_data))
