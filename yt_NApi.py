@@ -9,37 +9,38 @@ from urllib.error import HTTPError
 
 app = Flask(__name__)
 
-title = []
-video_ids = []
-like_count = []
-dislike_count = []
-view_count = []
+allowed_categid = [22, 27, 28]
 non_list_channel = ['UC1tVU8H153ZFO9eRsxdJlhA', 'UCeVMnSShP_Iviwkknt83cww', 'UC0LICD-FJ2FuA3FQ3ZiiLtw','UCl1Umy9WXb3I49JTMG3WoWw']
 
-def process(keyword):
 
+def process(keyword):
+    global title
+    title = []
+    channel_id = []
+    v_id = []
+    global video_ids
+    video_ids = []
+    view_count = []
+    like_count = []
+    dislike_count = []
     full_data = {}
     global rm_vid
     rm_vid = []
+    rm_categ_id = []
+    categ_id = []
     try:
+
         skill_set.append(keyword)
         html = urlopen(
             "https://www.youtube.com/results?search_query={}&sp=EgIYAg%253D%253D".format(keyword.replace(" ", "")))# searching in youtube
-        global video_ids
+
         video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())  # collecting video ids from youtube
         video_ids = list(dict.fromkeys(video_ids))
-        global title
-        title = []  # title list declaration for storing youtube video titles
 
     except urllib.error.HTTPError:
         pass
     finally:
 
-        channel_id = []
-        v_id = []
-        view_count = []
-        like_count = []
-        dislike_count = []
         for id in video_ids:
             url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&part=contentDetails&id=%s&t&key=AIzaSyAvp49alnVMEPxu-DVV1j8SSkowIrtLCjQ' % id
             # print(url)
@@ -51,6 +52,9 @@ def process(keyword):
             v_id.append(items[0]['id'])
             channel_id.append(items[0]['snippet']['channelId'])
             statistics = items[0]['statistics']
+            categ_id.append(int(items[0]['snippet']['categoryId']))
+            if int(items[0]['snippet']['categoryId']) not in allowed_categid:
+                rm_categ_id.append(int(items[0]['snippet']['categoryId']))
             title.append(items[0]['snippet']['title'])
             t = items[0]['snippet']['title']
             desc = items[0]['snippet']['description']
@@ -63,31 +67,63 @@ def process(keyword):
             view_count.append(statistics['viewCount'])
             like_count.append(statistics['likeCount'])
             dislike_count.append(statistics['dislikeCount'])
-        # print('#########################################################################################################')
-        # print(len(title))
-        # print(len(video_ids))
-        # print(len(like_count))
-        # print(len(dislike_count))
+        print('#########################################################################################################')
+        print(len(title))
+        print(len(video_ids))
+        print(len(like_count))
+        print(len(dislike_count))
 
         for item in rm_vid:
             if item in video_ids:
                 idx = video_ids.index(item)
                 channel_id.remove(channel_id[idx])
                 v_id.remove(v_id[idx])
+                categ_id.remove(categ_id[idx])
                 video_ids.remove(video_ids[idx])
                 title.remove(title[idx])
                 like_count.remove(like_count[idx])
                 dislike_count.remove(dislike_count[idx])
+        print(
+            '#########################################################################################################')
+        print(len(title))
+        print(len(video_ids))
+        print(len(like_count))
+        print(len(dislike_count))
 
         for chnl in non_list_channel:
             while chnl in channel_id:
                 cidx = channel_id.index(chnl)
+                categ_id.remove(categ_id[cidx])
                 channel_id.remove(channel_id[cidx])
                 v_id.remove(v_id[cidx])
                 video_ids.remove(video_ids[cidx])
                 title.remove(title[cidx])
                 like_count.remove(like_count[cidx])
                 dislike_count.remove(dislike_count[cidx])
+
+        print(
+            '#########################################################################################################')
+        print(len(title))
+        print(len(video_ids))
+        print(len(like_count))
+        print(len(dislike_count))
+
+        for cid in rm_categ_id:
+            while cid in categ_id:
+                catidx = categ_id.index(cid)
+                categ_id.remove(categ_id[catidx])
+                v_id.remove(v_id[catidx])
+                video_ids.remove(video_ids[catidx])
+                title.remove(title[catidx])
+                like_count.remove(like_count[catidx])
+                dislike_count.remove(dislike_count[catidx])
+
+        print(
+            '#########################################################################################################')
+        print(len(title))
+        print(len(video_ids))
+        print(len(like_count))
+        print(len(dislike_count))
 
         full_data.update({"title": title})
         full_data.update({"v_id": v_id})
