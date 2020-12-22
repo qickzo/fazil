@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -32,12 +32,14 @@
                     <h1>{{ complt_data[i]['title'][j] }}</h1>
                     <div class="container m-5">
                         <iframe style="align-content: center;" height="480" width="854"
-                                src="https://www.youtube.com/embed/{{ complt_data[i]['v_id'][j] }}"></iframe>
+                                src="https://www.youtube.com/embed/{{ complt_data[i]['v_id'][j] }}?rel=0&modestbranding=1"></iframe>
                         <br><br>
                     </div>
                     <h3>views:  {{ complt_data[i]['view_count'][j] }}</h3><br>
                     <h3>likes: {{ complt_data[i]['like_count'][j] }}</h3><br>
                     <h3>dislike: {{ complt_data[i]['dislike_count'][j] }}</h3><br>
+                    <h3>category : {{ complt_data[i]['cid'][j] }}</h3>
+                    <h3><a href="{{ complt_data[i]['url'][j] }}">url</a> </h3>
                 </div>
                 {% endfor %}
 
