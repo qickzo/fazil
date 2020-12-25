@@ -27,6 +27,7 @@ def process(keyword):
     title = []  #1
     channel_id = []  #2
     v_id = []  #3
+    lang_check = []
     global video_ids
     video_ids = []  #4
     view_count = []  #5
@@ -95,9 +96,13 @@ def process(keyword):
             except:
                 dislike_count.append(None)
             try:
-                lang.append([items[0]['snippet']['defaultAudioLanguage'],'title : '+t])
+                lang_check.append([items[0]['snippet']['defaultAudioLanguage'],'title : '+t])
+                lang.append(items[0]['snippet']['defaultAudioLanguage'])
+                if 'en' not in  items[0]['snippet']['defaultAudioLanguage']:
+                    rm_vid.append(id)
             except:
-                lang.append(['none','title : '+t])
+                lang_check.append(['none','title : '+t])
+                lang.append('none')
             print(
                 '############################# in loop ############################################################################')
             print(title)
@@ -116,49 +121,7 @@ def process(keyword):
         print(len(lang))
 
 
-        # for item in rm_vid:
-        #     if item in video_ids:
-        #         print('************** rm vid before***********************')
-        #         print(title)
-        #         print(v_id)
-        #         print(like_count)
-        #         print(dislike_count)
-        #         print(urllst)
-        #         print(categ_id)
-        #         print(lang)
-        #
-        #         print('item  : ', item)
-        #         idx = v_id.index(item)
-        #         print('idx : ', idx)
-        #         print('channel_id[idx] : ', channel_id[idx])
-        #         channel_id.remove(channel_id[idx])
-        #         print("v_id[idx] : ", v_id[idx])
-        #         v_id.remove(v_id[idx])
-        #         print('categ_id[idx] : ', categ_id[idx])
-        #         categ_id.remove(categ_id[idx])
-        #         print('video_ids[idx] : ', video_ids[idx])
-        #         video_ids.remove(video_ids[idx])
-        #         print('view_count[idx] : ', view_count[idx])
-        #         view_count.remove(view_count[idx])
-        #         print('title[idx] : ', title[idx])
-        #         title.remove(title[idx])
-        #         print('like_count[idx] : ', like_count[idx])
-        #         like_count.remove(like_count[idx])
-        #         print('dislike_count[idx] : ', dislike_count[idx])
-        #         dislike_count.remove(dislike_count[idx])
-        #         print('urllst[idx] : ', urllst[idx])
-        #         urllst.remove(urllst[idx])
-        #         print('lang[idx] : ', lang[idx])
-        #         lang.remove(lang[idx])
-        #
-        #         print('************** rm vid after***********************')
-        #         print(title)
-        #         print(v_id)
-        #         print(like_count)
-        #         print(dislike_count)
-        #         print(urllst)
-        #         print(categ_id)
-        #         print(lang)
+
 
         print(
             '#######################SECOND##################################################################################')
@@ -266,9 +229,41 @@ def process(keyword):
         print(len(urllst))
         print(len(lang))
 
-        for lg in lang:
-            if 'en' not in lg:
-                print('************** lang before***********************')
+        # for lg in lang:
+        #     if 'en' not in lg:
+        #         print('************** lang before***********************')
+        #         print(title)
+        #         print(v_id)
+        #         print(like_count)
+        #         print(dislike_count)
+        #         print(urllst)
+        #         print(categ_id)
+        #         print(lang)
+        #
+        #         lidx = lang.index(lg)
+        #         categ_id.remove(categ_id[lidx])
+        #         v_id.remove(v_id[lidx])
+        #         video_ids.remove(video_ids[lidx])
+        #         title.remove(title[lidx])
+        #         view_count.remove(view_count[lidx])
+        #         channel_id.remove(channel_id[lidx])
+        #         like_count.remove(like_count[lidx])
+        #         dislike_count.remove(dislike_count[lidx])
+        #         urllst.remove(urllst[lidx])
+        #         lang.remove(lang[lidx])
+        #
+        #         print('************** lang after***********************')
+        #         print(title)
+        #         print(v_id)
+        #         print(like_count)
+        #         print(dislike_count)
+        #         print(urllst)
+        #         print(categ_id)
+        #         print(lang)
+
+        for item in rm_vid:
+            if item in video_ids:
+                print('************** rm vid before***********************')
                 print(title)
                 print(v_id)
                 print(like_count)
@@ -277,19 +272,31 @@ def process(keyword):
                 print(categ_id)
                 print(lang)
 
-                lidx = lang.index(lg)
-                categ_id.remove(categ_id[lidx])
-                v_id.remove(v_id[lidx])
-                video_ids.remove(video_ids[lidx])
-                title.remove(title[lidx])
-                view_count.remove(view_count[lidx])
-                channel_id.remove(channel_id[lidx])
-                like_count.remove(like_count[lidx])
-                dislike_count.remove(dislike_count[lidx])
-                urllst.remove(urllst[lidx])
-                lang.remove(lang[lidx])
+                print('item  : ', item)
+                idx = v_id.index(item)
+                print('idx : ', idx)
+                print('channel_id[idx] : ', channel_id[idx])
+                channel_id.remove(channel_id[idx])
+                print("v_id[idx] : ", v_id[idx])
+                v_id.remove(v_id[idx])
+                print('categ_id[idx] : ', categ_id[idx])
+                categ_id.remove(categ_id[idx])
+                print('video_ids[idx] : ', video_ids[idx])
+                video_ids.remove(video_ids[idx])
+                print('view_count[idx] : ', view_count[idx])
+                view_count.remove(view_count[idx])
+                print('title[idx] : ', title[idx])
+                title.remove(title[idx])
+                print('like_count[idx] : ', like_count[idx])
+                like_count.remove(like_count[idx])
+                print('dislike_count[idx] : ', dislike_count[idx])
+                dislike_count.remove(dislike_count[idx])
+                print('urllst[idx] : ', urllst[idx])
+                urllst.remove(urllst[idx])
+                print('lang[idx] : ', lang[idx])
+                lang.remove(lang[idx])
 
-                print('************** lang after***********************')
+                print('************** rm vid after***********************')
                 print(title)
                 print(v_id)
                 print(like_count)
@@ -297,6 +304,7 @@ def process(keyword):
                 print(urllst)
                 print(categ_id)
                 print(lang)
+
         print(
             '################### FIFTH ######################################################################################')
         print(len(title))
