@@ -4,21 +4,21 @@ from flask import Flask, request, render_template  # flask importing
 import re  # regular expression ie searching a string in collection of data
 from urllib.request import urlopen
 import json
-import requests
+# import requests
 from urllib.error import HTTPError
-import threading
-import concurrent.futures
+# import threading
+# import concurrent.futures
 
 app = Flask(__name__)
 
 allowed_categid = [27, 28]
-non_list_channel = [
-    'UC1tVU8H153ZFO9eRsxdJlhA',
-    'UCeVMnSShP_Iviwkknt83cww',
-    'UC0LICD-FJ2FuA3FQ3ZiiLtw',
-    'UCl1Umy9WXb3I49JTMG3WoWw',
-    #'UCNT5YLfnn2cQGIxGw8iOxJQ'
-]
+# non_list_channel = [
+#     'UC1tVU8H153ZFO9eRsxdJlhA',
+#     'UCeVMnSShP_Iviwkknt83cww',
+#     'UC0LICD-FJ2FuA3FQ3ZiiLtw',
+#     'UCl1Umy9WXb3I49JTMG3WoWw',
+#     #'UCNT5YLfnn2cQGIxGw8iOxJQ'
+# ]
 courses = ['web development', 'app development']
 
 
@@ -75,13 +75,13 @@ def process(keyword):
             title.append(items[0]['snippet']['title'])
             print(items[0]['snippet']['title'])
             t = items[0]['snippet']['title']
-            desc = items[0]['snippet']['description']
+            # desc = items[0]['snippet']['description']
 
-            if 'hindi' in t.lower():
-                rm_vid.append(id)
-            restrctkeywd = 'hindi|malayalam|urdu|bengali|telugu|tamil|gujarati|kannada|punjabi|marathi'
-            if re.findall(restrctkeywd, t.lower()) or re.findall(restrctkeywd, desc.lower()):
-                rm_vid.append(id)
+            # if 'hindi' in t.lower():
+            #     rm_vid.append(id)
+            # restrctkeywd = 'hindi|malayalam|urdu|bengali|telugu|tamil|gujarati|kannada|punjabi|marathi'
+            # if re.findall(restrctkeywd, t.lower()) or re.findall(restrctkeywd, desc.lower()):
+            #     rm_vid.append(id)
             try:
                 view_count.append(statistics['viewCount'])
             except:
@@ -95,9 +95,9 @@ def process(keyword):
             except:
                 dislike_count.append(None)
             try:
-                lang.append(items[0]['snippet']['defaultAudioLanguage'])
+                lang.append([items[0]['snippet']['defaultAudioLanguage'],'title : '+t])
             except:
-                lang.append('none')
+                lang.append(['none','title : '+t])
             print(
                 '############################# in loop ############################################################################')
             print(title)
@@ -116,36 +116,49 @@ def process(keyword):
         print(len(lang))
 
 
-        for item in rm_vid:
-            if item in video_ids:
-                print('************** rm vid before***********************')
-                print(title)
-                print(v_id)
-                print(like_count)
-                print(dislike_count)
-                print(urllst)
-                print(categ_id)
-                print(lang)
-
-                idx = video_ids.index(item)
-                channel_id.remove(channel_id[idx])
-                v_id.remove(v_id[idx])
-                categ_id.remove(categ_id[idx])
-                video_ids.remove(video_ids[idx])
-                view_count.remove(view_count[idx])
-                title.remove(title[idx])
-                like_count.remove(like_count[idx])
-                dislike_count.remove(dislike_count[idx])
-                urllst.remove(urllst[idx])
-                lang.remove(lang[idx])
-                print('************** rm vid after***********************')
-                print(title)
-                print(v_id)
-                print(like_count)
-                print(dislike_count)
-                print(urllst)
-                print(categ_id)
-                print(lang)
+        # for item in rm_vid:
+        #     if item in video_ids:
+        #         print('************** rm vid before***********************')
+        #         print(title)
+        #         print(v_id)
+        #         print(like_count)
+        #         print(dislike_count)
+        #         print(urllst)
+        #         print(categ_id)
+        #         print(lang)
+        #
+        #         print('item  : ', item)
+        #         idx = v_id.index(item)
+        #         print('idx : ', idx)
+        #         print('channel_id[idx] : ', channel_id[idx])
+        #         channel_id.remove(channel_id[idx])
+        #         print("v_id[idx] : ", v_id[idx])
+        #         v_id.remove(v_id[idx])
+        #         print('categ_id[idx] : ', categ_id[idx])
+        #         categ_id.remove(categ_id[idx])
+        #         print('video_ids[idx] : ', video_ids[idx])
+        #         video_ids.remove(video_ids[idx])
+        #         print('view_count[idx] : ', view_count[idx])
+        #         view_count.remove(view_count[idx])
+        #         print('title[idx] : ', title[idx])
+        #         title.remove(title[idx])
+        #         print('like_count[idx] : ', like_count[idx])
+        #         like_count.remove(like_count[idx])
+        #         print('dislike_count[idx] : ', dislike_count[idx])
+        #         dislike_count.remove(dislike_count[idx])
+        #         print('urllst[idx] : ', urllst[idx])
+        #         urllst.remove(urllst[idx])
+        #         print('lang[idx] : ', lang[idx])
+        #         lang.remove(lang[idx])
+        #
+        #         print('************** rm vid after***********************')
+        #         print(title)
+        #         print(v_id)
+        #         print(like_count)
+        #         print(dislike_count)
+        #         print(urllst)
+        #         print(categ_id)
+        #         print(lang)
 
         print(
             '#######################SECOND##################################################################################')
@@ -156,38 +169,38 @@ def process(keyword):
         print(len(urllst))
         print(len(lang))
 
-
-        for chnl in non_list_channel:
-            while chnl in channel_id:
-                print('************** non list channel before***********************')
-                print(title)
-                print(v_id)
-                print(like_count)
-                print(dislike_count)
-                print(urllst)
-                print(categ_id)
-                print(lang)
-
-                cidx = channel_id.index(chnl)
-                categ_id.remove(categ_id[cidx])
-                channel_id.remove(channel_id[cidx])
-                v_id.remove(v_id[cidx])
-                video_ids.remove(video_ids[cidx])
-                view_count.remove(view_count[cidx])
-                title.remove(title[cidx])
-                like_count.remove(like_count[cidx])
-                dislike_count.remove(dislike_count[cidx])
-                urllst.remove(urllst[cidx])
-                lang.remove(lang[cidx])
-
-                print('************** non list channel after***********************')
-                print(title)
-                print(v_id)
-                print(like_count)
-                print(dislike_count)
-                print(urllst)
-                print(categ_id)
-                print(lang)
+        
+        # for chnl in non_list_channel:
+        #     while chnl in channel_id:
+        #         print('************** non list channel before***********************')
+        #         print(title)
+        #         print(v_id)
+        #         print(like_count)
+        #         print(dislike_count)
+        #         print(urllst)
+        #         print(categ_id)
+        #         print(lang)
+        #
+        #         cidx = channel_id.index(chnl)
+        #         categ_id.remove(categ_id[cidx])
+        #         channel_id.remove(channel_id[cidx])
+        #         v_id.remove(v_id[cidx])
+        #         video_ids.remove(video_ids[cidx])
+        #         view_count.remove(view_count[cidx])
+        #         title.remove(title[cidx])
+        #         like_count.remove(like_count[cidx])
+        #         dislike_count.remove(dislike_count[cidx])
+        #         urllst.remove(urllst[cidx])
+        #         lang.remove(lang[cidx])
+        #
+        #         print('************** non list channel after***********************')
+        #         print(title)
+        #         print(v_id)
+        #         print(like_count)
+        #         print(dislike_count)
+        #         print(urllst)
+        #         print(categ_id)
+        #         print(lang)
 
         print(
             '####################THIRD#####################################################################################')
@@ -197,7 +210,6 @@ def process(keyword):
         print(len(dislike_count))
         print(len(urllst))
         print(len(lang))
-
 
         for cid in rm_categ_id:
             while cid in categ_id:
@@ -209,6 +221,13 @@ def process(keyword):
                 print(urllst)
                 print(categ_id)
                 print(lang)
+
+                print(len(title))
+                print(len(video_ids))
+                print(len(like_count))
+                print(len(dislike_count))
+                print(len(urllst))
+                print(len(lang))
 
                 catidx = categ_id.index(cid)
                 categ_id.remove(categ_id[catidx])
@@ -230,6 +249,14 @@ def process(keyword):
                 print(urllst)
                 print(categ_id)
                 print(lang)
+
+                print(len(title))
+                print(len(video_ids))
+                print(len(like_count))
+                print(len(dislike_count))
+                print(len(urllst))
+                print(len(lang))
+
 
         print('###################FOURTH######################################################################################')
         print(len(title))
@@ -270,7 +297,15 @@ def process(keyword):
                 print(urllst)
                 print(categ_id)
                 print(lang)
-
+        print(
+            '################### FIFTH ######################################################################################')
+        print(len(title))
+        print(len(video_ids))
+        print(len(like_count))
+        print(len(dislike_count))
+        print(len(urllst))
+        print(len(lang))
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$$\n', lang, '\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
         full_data.update({"title": title})
         full_data.update({"v_id": v_id})
         full_data.update({"cid": categ_id})
