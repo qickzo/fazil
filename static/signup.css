@@ -1,0 +1,196 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* style the container */
+.container {
+  position: relative;
+  border-radius: 5px;
+  background: linear-gradient(to right, #b92b27, #1565c0);
+  padding: 20px 0 30px 0;
+  height:42em;
+
+}
+
+/* style inputs and link buttons */
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  text-align:center;
+  /* remove underline from anchors */
+}
+.btn1 {
+  width: 50%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  text-align:center;
+  margin-top:1em;
+  margin: 35px auto;
+  /* remove underline from anchors */
+
+
+    border: 0;
+    background: none;
+    display: block;
+
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s
+    color:white;
+
+
+
+
+}
+ .btn1:focus {
+    width: 400px;
+    border-color: #b92b27;
+}
+.forgot{
+  margin-left: 30%;
+  margin-top: 1em;
+  color:black;
+}
+.or{
+color: red;
+}
+.para2{
+  margin-left: 37%;
+  color:white;
+}
+.sign{
+color:red;
+
+}
+
+
+
+#email{
+
+background-color:white;
+}
+#pass{
+background-color:white;
+
+}
+#lo{
+background-color:red;
+margin-top: 50px;
+
+}
+#full{
+background-color:white;
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+.seperator{
+   box-sizing: border-box;
+    border-top: 10px solid #dedfe0;
+    height: 1px;
+}
+.already{
+margin-left: 33%;
+margin-top: 2em;
+color:black;
+
+}
+.bottom{
+    margin: 1em;
+    color: white;
+}
+.ter{
+color:white;
+}
+.privacy{
+color:white;
+}
+
+
+
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+}
