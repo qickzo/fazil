@@ -88,7 +88,7 @@ def logged_in():
 
 @app.route("/sign_in", methods=["POST", "GET"])
 def sign_in():
-    message = 'Please login to your account'
+    message = ''
     if "email" in session:
         return redirect(url_for("logged_in"))
 
@@ -97,10 +97,10 @@ def sign_in():
         password = request.form.get("password")
 
         email_found = records.find_one({"email": email})
-        name_val = email_found['name']
         if email_found:
             email_val = email_found['email']
             passwordcheck = email_found['password']
+            name_val = email_found['name']
 
             if bcrypt.checkpw(password.encode('utf-8'), passwordcheck):
                 session["email"] = email_val

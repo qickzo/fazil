@@ -34,13 +34,15 @@
                        name="password2"
                        placeholder="Repeat Password" required>
                 <br>
-                {% if message %}
-                <div class="alert alert-danger" style="margin-left:10%;margin-right:10%;margin-top:3%;margin-bottom:15%;"
+
+                <input class="btn1" id="lo" type="submit" value="Sign Up">
+                                {% if message %}
+                <div class="alert alert-danger"
+                     style="margin-left:10%;margin-right:10%;margin-top:3%;"
                      role="alert">
                     {{ message }}
                 </div>
                 {% endif %}
-                <input class="btn1" id="lo" type="submit" value="Sign Up">
                 <div class="text-center" style="margin-left:10%;margin-right:10%;margin-top:3%;margin-bottom:15%;">
                     <p class="forgot">By signing up, you agree to our <span class="ter">Terms of Use</span> and <span
                             class="privacy"> Privacy Policy</span> .</p>
