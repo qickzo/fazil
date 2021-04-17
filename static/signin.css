@@ -1,24 +1,14 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-* {
-  box-sizing: border-box;
-}
-
-/* style the container */
-.container {
+.cont {
 margin:0px;
   position: relative;
-  border-radius: 5px;
-  background: linear-gradient(to right, #b92b27, #1565c0);
-  height: 42em  ;
+  height: 100% ;
 
 }
 
 /* style inputs and link buttons */
 
-.btn {
+.btnn {
   width: 100%;
   padding: 12px;
   border: none;
@@ -66,21 +56,16 @@ margin:0px;
 
 }
  .btn1:focus {
-    width: 400px;
+    width: 300px;
     border-color: #b92b27;
 }
 .forgot{
-  margin-left: 40%;
-  margin-top: 1em;
-  color:white;
+
 }
 .or{
 color: red;
 }
-.para2{
-  margin-left: 37%;
-  color:white;
-}
+
 .sign{
 color:red;
 
@@ -107,7 +92,7 @@ margin-top: 50px;
 }
 
 input:hover,
-.btn:hover {
+.btnn:hover {
   opacity: 1;
 }
 
@@ -125,7 +110,7 @@ input[type=submit]:hover {
 }
 
 /* Two-column layout */
-.col {
+.coll {
   float: left;
   width: 50%;
   margin: auto;
@@ -134,7 +119,7 @@ input[type=submit]:hover {
 }
 
 /* Clear floats after the columns */
-.row:after {
+.roww:after {
   content: "";
   display: table;
   clear: both;
@@ -147,16 +132,17 @@ input[type=submit]:hover {
   display: none;
 }
 
-/* bottom container */
-.bottom-container {
+/* bottom cont */
+.bottom-cont {
   text-align: center;
   background-color: #666;
-  border-radius: 0px 0px 4px 4px;
+
 }
 
 /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 650px) {
-  .col {
+
+  .coll {
     width: 100%;
     margin-top: 0;
   }

@@ -1,0 +1,24 @@
+
+        html, body{
+        padding:0;
+
+    height: 100%;
+
+        }
+        @media (max-width: 400px) {
+        .mybtn{
+        width:3em;
+        height:1.8em;
+        padding:2px;
+        font-size:12px;
+        }
+    }
+
+.mybtn{
+        width:3.6em;
+        height:1.8em;
+        padding:2px;
+        font-size:14px;
+        }
+
+

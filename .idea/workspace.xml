@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7c4a125-9447-477e-b219-60ad46090879" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/s.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/sample.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/work.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/YT search.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/YT search.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fulldata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TEST.html" beforeDir="false" afterPath="$PROJECT_DIR$/test/TEST.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fazil/src.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fazil/src.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/signin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/signup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/test/show.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/show1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/show1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yt_Api.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/yt_Api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yt_NApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/yt_NApi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ytcred" beforeDir="false" afterPath="$PROJECT_DIR$/test/ytcred" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ytsrch.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/ytsrch.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,16 +61,79 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Project\Qickskill\templates" />
+      <recent name="C:\Users\user\Desktop\Project\Qickskill\static" />
+      <recent name="C:\Users\user\Desktop\Project\Qickskill\templates\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\user\Desktop\YT search\skill" />
+      <recent name="C:\Users\user\Desktop\Project\Qickskill\test" />
+      <recent name="C:\Users\user\Desktop\Project\Qickskill\static" />
+      <recent name="C:\Users\user\Desktop\Project\Qickskill\templates" />
+      <recent name="C:\Users\user\Desktop\Project\Qickskill\dashboard" />
+      <recent name="C:\Users\user\Desktop\Project\Qickskill" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.yt_NApi (1)">
-    <configuration name="fulldata" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.yt_NApi">
+    <configuration type="PythonConfigurationType" factoryName="Python">
+      <module name="YT search" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/Scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/Scripts/activate" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="YT search" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sample" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -65,7 +145,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fulldata.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\user\Desktop\Project\Qickskill\test\sample.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -74,7 +154,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sample2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -86,7 +166,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\user\Desktop\Project\Qickskill\test\sample2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -95,7 +175,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -107,7 +187,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test2.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\user\Desktop\Project\Qickskill\test\test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -116,7 +196,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="yt_NApi (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="yt_Api" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="YT search" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\user\Desktop\Project\Qickskill\test\yt_Api.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="yt_NApi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YT search" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -144,12 +245,12 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/YT-search" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="C:\Users\user\PycharmProjects\flask project\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/YT-search/yt_NApi.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yt_NApi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,17 +259,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.Unnamed" />
+      <item itemvalue="Python.sample" />
+      <item itemvalue="Python.yt_NApi" />
+      <item itemvalue="Python.yt_Api" />
+      <item itemvalue="Python.sample2" />
+      <item itemvalue="Python.test" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.yt_NApi (1)" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.fulldata" />
         <item itemvalue="Python.yt_NApi" />
-        <item itemvalue="Python.test2" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.sample2" />
+        <item itemvalue="Python.sample" />
+        <item itemvalue="Python.yt_Api" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f7c4a125-9447-477e-b219-60ad46090879" name="Default Changelist" comment="" />
@@ -179,82 +291,75 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="305" y="26" key="#Inspections" timestamp="1605078248857">
+    <state x="95" y="0" width="1099" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610720401265">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="305" y="26" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1605078248857" />
-    <state x="416" y="146" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606065204495">
+    <state x="95" y="0" width="1099" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1610720401265" />
+    <state x="360" y="86" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1610618526911">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="416" y="146" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1606065204495" />
-    <state x="360" y="86" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1608568089076">
+    <state x="360" y="86" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1610618526911" />
+    <state x="410" y="59" key="FileChooserDialogImpl" timestamp="1610722910518">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="360" y="86" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1608568089076" />
-    <state x="347" y="49" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605003692902">
+    <state x="410" y="59" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1610722910518" />
+    <state width="1339" height="130" key="GridCell.Tab.0.bottom" timestamp="1616329501168">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="347" y="49" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605003692902" />
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1606100522038">
+    <state width="1339" height="130" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616329501168" />
+    <state width="1339" height="130" key="GridCell.Tab.0.center" timestamp="1616329501168">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1606100522038" />
-    <state x="410" y="59" key="FileChooserDialogImpl" timestamp="1608818117556">
+    <state width="1339" height="130" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616329501168" />
+    <state width="1339" height="130" key="GridCell.Tab.0.left" timestamp="1616329501168">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="410" y="59" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608818117556" />
-    <state width="1339" height="531" key="GridCell.Tab.0.bottom" timestamp="1610101821006">
+    <state width="1339" height="130" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616329501168" />
+    <state width="1339" height="130" key="GridCell.Tab.0.right" timestamp="1616329501168">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="531" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1610101821006" />
-    <state width="1339" height="531" key="GridCell.Tab.0.center" timestamp="1610101821006">
+    <state width="1339" height="130" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616329501168" />
+    <state x="0" y="0" key="SettingsEditor" timestamp="1610722918373">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1339" height="531" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1610101821006" />
-    <state width="1339" height="531" key="GridCell.Tab.0.left" timestamp="1610101821006">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1339" height="531" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1610101821006" />
-    <state width="1339" height="531" key="GridCell.Tab.0.right" timestamp="1610101821006">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1339" height="531" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1610101821006" />
-    <state width="1339" height="324" key="GridCell.Tab.1.bottom" timestamp="1605004704611">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1339" height="324" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605004704611" />
-    <state width="1339" height="324" key="GridCell.Tab.1.center" timestamp="1605004704610">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1339" height="324" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1605004704610" />
-    <state width="1339" height="324" key="GridCell.Tab.1.left" timestamp="1605004704609">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1339" height="324" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1605004704609" />
-    <state width="1339" height="324" key="GridCell.Tab.1.right" timestamp="1605004704610">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1339" height="324" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1605004704610" />
-    <state x="0" y="0" key="SettingsEditor" timestamp="1608818866504">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="0" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1608818866504" />
-    <state x="337" y="42" width="675" height="655" key="StructurePopup" timestamp="1605000503083">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="337" y="42" width="675" height="655" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1605000503083" />
+    <state x="0" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1610722918373" />
     <state x="234" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1608916687819">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="234" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728@0.0.1366.728" timestamp="1608916687819" />
-    <state x="328" y="32" width="710" height="664" key="find.popup" timestamp="1606058100956">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="328" y="32" width="710" height="664" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1606058100956" />
     <state x="262" y="0" width="840" height="1034" key="search.everywhere.popup" timestamp="1608608884320">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="262" y="0" width="840" height="1034" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1608608884320" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/sample2.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/sample2.py</url>
+          <line>145</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

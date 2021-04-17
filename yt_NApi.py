@@ -1,23 +1,138 @@
 import urllib
+import os
 from pprint import pprint
-from flask import Flask, request, render_template  # flask importing
+from flask import Flask, render_template, request, url_for, redirect, session
 import re
 from urllib.request import urlopen
 import json
 from urllib.error import HTTPError
-from flask_login import LoginManager, login_required
-from flask_sqlalchemy import SQLAlchemy
+import pymongo
+import bcrypt
 
 
 app = Flask(__name__)
-#-------------other setup---------------------------------
-# app.config['SECRET_KEY'] = 'you-will-never-guess'
-# # -----------------user login setup ----------------------
-# login = LoginManager(app)
+app.secret_key = "testing"
+client = pymongo.MongoClient()
+db = client.get_database('User_accounts')
+records = db.register
+
+
+@app.context_processor
+def override_url_for():
+    return dict(url_for=dated_url_for)
+
+
+def dated_url_for(endpoint, **values):
+    if endpoint == 'static':
+        filename = values.get('filename', None)
+        if filename:
+            file_path = os.path.join(app.root_path,
+                                 endpoint, filename)
+            values['q'] = int(os.stat(file_path).st_mtime)
+    return url_for(endpoint, **values)
 
 
 allowed_categid = [27, 28]
 courses = ['web development', 'app development']
+
+
+@app.route("/sign_up", methods=['post', 'get'])
+def sign_up():
+    message = ''
+    if "email" in session:
+        return redirect(url_for("logged_in"))
+    if request.method == "POST":
+        user = request.form.get("fullname")
+        email = request.form.get("email")
+
+        password1 = request.form.get("password1")
+        password2 = request.form.get("password2")
+
+        user_found = records.find_one({"name": user})
+        email_found = records.find_one({"email": email})
+        if user_found:
+            message = 'There already is a user by that name'
+            return render_template('signup.html', message=message)
+        if email_found:
+            message = 'This email already exists in database'
+            return render_template('signup.html', message=message)
+        if password1 != password2:
+            message = 'Passwords should  match!'
+            return render_template('signup.html', message=message)
+        else:
+            hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
+            user_input = {'name': user, 'email': email, 'password': hashed}
+            records.insert_one(user_input)
+
+            user_data = records.find_one({"email": email})
+            new_email = user_data['email']
+            new_name = user_data['name']
+            session["email"] = new_email
+            session["name"] = new_name
+
+            return redirect(url_for('logged_in'))
+
+    return render_template('signup.html')
+
+
+@app.route('/logged_in')
+def logged_in():
+    if "email" in session:
+        email = session["email"]
+        name = session["name"]
+        authenticated = True
+        return render_template('dashboard.html', name=name.title(), email=email, authenticated=authenticated)
+    else:
+        return redirect(url_for("sign_in"))
+
+
+@app.route("/sign_in", methods=["POST", "GET"])
+def sign_in():
+    message = 'Please login to your account'
+    if "email" in session:
+        return redirect(url_for("logged_in"))
+
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        email_found = records.find_one({"email": email})
+        name_val = email_found['name']
+        if email_found:
+            email_val = email_found['email']
+            passwordcheck = email_found['password']
+
+            if bcrypt.checkpw(password.encode('utf-8'), passwordcheck):
+                session["email"] = email_val
+                session["name"] = name_val
+                return redirect(url_for('logged_in'))
+            else:
+                if "email" in session:
+                    return redirect(url_for("logged_in"))
+                message = 'Wrong password'
+                return render_template('signin.html', message=message)
+        else:
+            message = 'Email not found'
+            return render_template('signin.html', message=message)
+    return render_template('signin.html', message=message)
+
+
+@app.route("/logout", methods=["POST", "GET"])
+def logout():
+    if "email" in session:
+        session.pop("email", None)
+        return render_template("signout.html")
+    else:
+        return  redirect(url_for("sign_in"))
+
+
+@app.route('/click')
+def click():
+    if "email" in session:
+        return redirect(url_for('logged_in'))
+
+    return redirect(url_for('sign_in'))
+
 
 
 def process(keyword):
@@ -105,6 +220,7 @@ def process(keyword):
 
 
 @app.route('/', methods=['GET'])
+@app.route('/index ', methods=['GET'])
 def hello_world():
     return render_template('index.html')
 
@@ -130,8 +246,12 @@ def my_form_post():
         for j in complt_data[0]:
             print(j)
     # return render_template('index.html')
+    flag = True
+    if "email" in session:
+        flag = None
+
     return render_template('show1.html', search_keyword=search_keyword.title(), complt_data=complt_data,
-                           data_count=len(complt_data))
+                           data_count=len(complt_data), flag=flag)
 
 
 if __name__ == '__main__':

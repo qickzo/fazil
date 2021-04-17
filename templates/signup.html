@@ -1,50 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="signup.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Create Account{% endblock %}
+
+{% block content %}
+<!------------------------------------------------------------------------------->
+
+<link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
+
+<!--    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 
 
-<div class="container col-12">
-  <form action="/action_page.php">
-    <div class="row">
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
+<!--    <meta name="HandheldFriendly" content="true">-->
+<!------------------------------------------------------------------------------->
+<div >
 
+<div class="cont col-12"
+     style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
 
+    <form action="/sign_up" method="post">
+        <div class="row">
+            <div class="col-12 pt-5 mt-5">
+                <h2 class="text-center mt-4" style="color:#e47010;"><b><i>Create an Account</i></b> </h2>
 
-      <div class="col">
+                <input class="btn1 my-3 p-2 " id="full" type="text" name="fullname" placeholder="Full name" required>
+                <input class="btn1 my-3 p-2 " id="email" type="email" name="email" placeholder="Email" required>
+                <input class="btn1 p-2 my-3 " id="pass" type="password" name="password1" placeholder="Password"
+                       required>
+                <input class="btn1 p-2 my-3 " id="pass1" style="background-color:white;" type="password"
+                       name="password2"
+                       placeholder="Repeat Password" required>
+                <br>
+                {% if message %}
+                <div class="alert alert-danger" style="margin-left:10%;margin-right:10%;margin-top:3%;margin-bottom:15%;"
+                     role="alert">
+                    {{ message }}
+                </div>
+                {% endif %}
+                <input class="btn1" id="lo" type="submit" value="Sign Up">
+                <div class="text-center" style="margin-left:10%;margin-right:10%;margin-top:3%;margin-bottom:15%;">
+                    <p class="forgot">By signing up, you agree to our <span class="ter">Terms of Use</span> and <span
+                            class="privacy"> Privacy Policy</span> .</p>
+                    <p class="already">Already have an account ? <a href="/sign_in" class="bottom pl-2">Sign in</a></p>
+                </div>
 
+            </div>
 
-        <input class="btn1" id="full" type="text" name="Fullname" placeholder="Full name" required>
-        <input class="btn1" id="email" type="email" name="email" placeholder="Email" required>
-        <input class="btn1" id="pass" type="password" name="password" placeholder="Password" required>
-        <input class="btn1" id="lo" onclick="window.location.href=''"  type="submit" value="Sign Up">
-      </div>
-
-
-        <div class=" col-12 ">
-
-            <p class="forgot">By signing up, you agree to our <span class="ter">Terms of Use</span> and <span class="privacy"> Privacy Policy</span> .</p>
-
-			</div>
-        <div class="col-12">
-        <p class="already">Already have an account?<a href="signin.html" class="bottom">Sign in</a></p>
 
         </div>
-
-
-    </div>
-  </form>
-</div>
-
-
-
-
-</body>
-</html>
+    </form>
+</div></div>
+{% endblock %}

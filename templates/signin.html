@@ -1,60 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="signin.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% extends "base.html" %}
 
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+{% block title %}Sign In{% endblock %}
+{% block content %}
+<!------------------------------------------------------------------------------->
+    <link rel="stylesheet" href="{{ url_for('static', filename='signin.css') }}">
+<!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-<meta name="HandheldFriendly" content="true">
-
-</head>
-<!------ Include the above in your HEAD tag ---------->
-<body>
-
-<div class="container col-12   ">
-  <form action="/action_page.php">
-    <div class="row">
+<!--    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 
 
-		<div class="col-12">
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+
+<!--    <meta name="HandheldFriendly" content="true">-->
+<!------------------------------------------------------------------------------->
+
+    <div class="cont col-12 h-100 " style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
+        <form action="/sign_in" method="post">
+
+            <div class="row">
+                <div class="col-12 pt-5 mt-5">
+                    <h2 class="text-center mt-4" style="color:#e47010;"><b><i>Login </i></b> </h2>
+
+                    <input class="btn1 my-3 p-2" id="user" type="email" name="email" placeholder="email" required>
+                    <input class="btn1 my-3 p-2" id="pas" type="password" name="password" placeholder="Password" required>
+                    <input class="btn1 my-5 p-2" id="log" type="submit" value="Login">
+                     <div class="text-center">
+
+                    <p class="forgot pl-5"><span class="or">or</span> Forgot Password?</p>
+                     <p class="para2 pl-5"> Don't have an account?<a class="sign" href="/sign_up" "> Sign up</a></p>
+                </div>
+                </div>
 
 
-        <input class="btn1" id="user" type="text" name="username" placeholder="Username" required>
-        <input class="btn1" id="pas" type="password" name="password" placeholder="Password" required>
-        <input class="btn1" id="log" type="submit" value="Login">
-      </div>
-
-			<div class=" col-12 ">
-
-				<p class="forgot pl-5"><span class="or">or</span> Forgot Password?</p>
-
-			</div>
 
 
-		<div class=" col-12 ">
 
-				<p class="para2 pl-5"> Don't have an account?<a class="sign" href="signup.html" "> Sign up</a></p>
-		</div>
-
+            </div>
+        </form>
     </div>
-  </form>
-</div>
 
-<!--<div class="bottom-container">-->
-<!--  <div class="row">-->
-<!--    <div class="col">-->
-<!--      <a href="#" style="color:white" class="btn">Sign up</a>-->
-<!--    </div>-->
-<!--    <div class="col">-->
-<!--      <a href="#" style="color:white" class="btn">Forgot password?</a>-->
-<!--    </div>-->
-<!--  </div>-->
-</div>
 
-	</body>
-</html>
+{% endblock %}
