@@ -8,13 +8,24 @@ import json
 from urllib.error import HTTPError
 import pymongo
 import bcrypt
-
+import pyotp
+from flask_mail import Message, Mail
 
 app = Flask(__name__)
 app.secret_key = "testing"
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'dhackz101@gmail.com'
+app.config['MAIL_PASSWORD'] = 'mukxgmrdiggumwev'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
+
 client = pymongo.MongoClient()
 db = client.get_database('User_accounts')
 records = db.register
+
+
 
 
 @app.context_processor
@@ -34,6 +45,53 @@ def dated_url_for(endpoint, **values):
 
 allowed_categid = [27, 28]
 courses = ['web development', 'app development']
+
+
+@app.route('/validate', methods=['POST'])
+def validate():
+    d1, d2, d3, d4, d5, d6 = request.form.get('d1'), request.form.get('d2'), request.form.get('d3'), request.form.get('d4'),request.form.get('d5'),request.form.get('d6')
+    otp = int(session['otp'])
+    print('otp : ', type(otp))
+    otpp = int(d1+d2+d3+d4+d5+d6)
+    print('otpp : ', type(otpp))
+    if otp == otpp:
+        return render_template('change_password.html')
+    else:
+        return render_template('otp_request.html')
+
+
+@app.route('/change_password', methods=['POST'])
+def change_password():
+    if request.method == 'POST':
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+        email_found = records.find_one({'email':email})
+        if password1 != password2:
+            message = 'Passwords should  match!'
+            return render_template('change_password.html', message=message)
+        else:
+            hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
+
+            email_found['password'] = hashed
+
+            records.save(email_found)
+            return render_template('course.html')
+
+
+@app.route('/reset_password_request', methods=['GET', 'POST'])
+def reset_password_request():
+    if request.method == "POST":
+        email = request.form.get("email")
+        email_found = records.find_one({'email': email})
+        if email_found:
+            totp = pyotp.TOTP('base32secret3232')
+            otp = totp.now()
+            session['otp'] = otp
+            msg = Message(subject='otp', body=str(otp), sender='dhackz101@gmail.com', recipients=[email])
+            mail.send(msg)
+            return render_template('otp_request.html')
+        return redirect(url_for("reset_password_request"))
+    return render_template('reset_password_request.html')
 
 
 @app.route("/sign_up", methods=['post', 'get'])
@@ -121,7 +179,7 @@ def sign_in():
 def logout():
     if "email" in session:
         session.pop("email", None)
-        return render_template("signout.html")
+        return render_template("index.html")
     else:
         return  redirect(url_for("sign_in"))
 
@@ -132,7 +190,6 @@ def click():
         return redirect(url_for('logged_in'))
 
     return redirect(url_for('sign_in'))
-
 
 
 def process(keyword):
@@ -255,5 +312,5 @@ def my_form_post():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
 

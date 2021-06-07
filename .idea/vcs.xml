@@ -6,5 +6,6 @@
     <mapping directory="$PROJECT_DIR$/design/project" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/fazil/fazil" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/fazil/shaheer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../python-flask-E-learning-platform" vcs="Git" />
   </component>
 </project>

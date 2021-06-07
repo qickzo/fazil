@@ -1,0 +1,2662 @@
+ 
+Python Programming
+ at Wikibooks
+
+
+1
+ 
+History
+
+
+2
+ 
+Design philosophy and features
+
+
+3
+ 
+Syntax and semantics
+
+
+
+
+3.1
+ 
+Indentation
+
+
+3.2
+ 
+Statements and control flow
+
+
+3.3
+ 
+Expressions
+
+
+3.4
+ 
+Methods
+
+
+3.5
+ 
+Typing
+
+
+3.6
+ 
+Arithmetic operations
+
+
+
+
+
+
+4
+ 
+Programming examples
+
+
+5
+ 
+Libraries
+
+
+6
+ 
+Development environments
+
+
+7
+ 
+Implementations
+
+
+
+
+7.1
+ 
+Reference implementation
+
+
+7.2
+ 
+Other implementations
+
+
+7.3
+ 
+Unsupported implementations
+
+
+7.4
+ 
+Cross-compilers to other languages
+
+
+7.5
+ 
+Performance
+
+
+
+
+
+
+8
+ 
+Development
+
+
+9
+ 
+API documentation generators
+
+
+10
+ 
+Naming
+
+
+11
+ 
+Uses
+
+
+12
+ 
+Languages influenced by Python
+
+
+13
+ 
+See also
+
+
+14
+ 
+References
+
+
+
+
+14.1
+ 
+Sources
+
+
+
+
+
+
+15
+ 
+Further reading
+
+
+16
+ 
+External links
+
+
+
+
+3.1
+ 
+Indentation
+
+
+3.2
+ 
+Statements and control flow
+
+
+3.3
+ 
+Expressions
+
+
+3.4
+ 
+Methods
+
+
+3.5
+ 
+Typing
+
+
+3.6
+ 
+Arithmetic operations
+
+
+
+
+7.1
+ 
+Reference implementation
+
+
+7.2
+ 
+Other implementations
+
+
+7.3
+ 
+Unsupported implementations
+
+
+7.4
+ 
+Cross-compilers to other languages
+
+
+7.5
+ 
+Performance
+
+
+
+
+14.1
+ 
+Sources
+
+
+Beautiful is better than ugly.
+
+
+Explicit is better than implicit.
+
+
+Simple is better than complex.
+
+
+Complex is better than complicated.
+
+
+Readability counts.
+The 
+assignment
+ statement, using a single equals sign 
+=
+.
+
+
+The 
+if
+ statement, which conditionally executes a block of code, along with 
+else
+ and 
+elif
+ (a contraction of else-if).
+
+
+The 
+for
+ statement, which iterates over an iterable object, capturing each element to a local variable for use by the attached block.
+
+
+The 
+while
+ statement, which executes a block of code as long as its condition is true.
+
+
+The 
+try
+ statement, which allows exceptions raised in its attached code block to be caught and handled by 
+except
+ clauses; it also ensures that clean-up code in a 
+finally
+ block will always be run regardless of how the block exits.
+
+
+The 
+raise
+ statement, used to raise a specified exception or re-raise a caught exception.
+
+
+The 
+class
+ statement, which executes a block of code and attaches its local namespace to a 
+class
+, for use in 
+object-oriented programming
+.
+
+
+The 
+def
+ statement, which defines a 
+function
+ or 
+method
+.
+
+
+The 
+with
+ statement, from Python 2.5 released in September 2006,
+[81]
+ which encloses a code block within a context manager (for example, acquiring a 
+lock
+ before the block of code is run and releasing the lock afterwards, or opening a 
+file
+ and then closing it), allowing 
+resource-acquisition-is-initialization
+ (RAII)-like behavior and replaces a common try/finally idiom.
+[82]
+
+
+The 
+break
+ statement, exits from a loop.
+
+
+The 
+continue
+ statement, skips this iteration and continues with the next item.
+
+
+The 
+del
+ statement, removes a variable, which means the reference from the name to the value is deleted and trying to use that variable will cause an error. A deleted variable can be reassigned.
+
+
+The 
+pass
+ statement, which serves as a 
+NOP
+. It is syntactically needed to create an empty code block.
+
+
+The 
+assert
+ statement, used during debugging to check for conditions that should apply.
+
+
+The 
+yield
+ statement, which returns a value from a 
+generator
+ function. From Python 2.5, 
+yield
+ is also an operator. This form is used to implement 
+coroutines
+.
+
+
+The 
+return
+ statement, used to return a value from a function.
+
+
+The 
+import
+ statement, which is used to import modules whose functions or variables can be used in the current program. There are three ways of using 
+import
+:
+
+import
+ 
+<
+module
+ 
+name
+>
+ 
+[
+as
+ 
+<
+alias
+>
+]
+
+
+from
+ 
+<
+module
+ 
+name
+>
+ 
+import
+ 
+*
+
+
+from
+ 
+<
+module
+ 
+name
+>
+ 
+import
+ 
+<
+definition
+ 
+1
+>
+ 
+[
+as
+ 
+<
+alias
+ 
+1
+>
+],
+ 
+<
+definition
+ 
+2
+>
+ 
+[
+as
+ 
+<
+alias
+ 
+2
+>
+],
+ 
+...
+.
+Addition, subtraction, and multiplication are the same, but the behavior of division differs. There are two types of divisions in Python. They are floor division (or integer division) 
+//
+ and floating-point
+/
+division.
+[87]
+ Python also uses the 
+**
+ operator for exponentiation.
+
+
+From Python 3.5, the new 
+@
+ infix operator was introduced. It is intended to be used by libraries such as 
+NumPy
+ for 
+matrix multiplication
+.
+[88]
+[89]
+
+
+From Python 3.8, the syntax 
+:=
+, called the 'walrus operator' was introduced. It assigns values to variables as part of a larger expression.
+[90]
+
+
+In Python, 
+==
+ compares by value, versus Java, which compares numerics by value
+[91]
+ and objects by reference.
+[92]
+ (Value comparisons in Java on objects can be performed with the 
+equals()
+ method.) Python's 
+is
+ operator may be used to compare object identities (comparison by reference). In Python, comparisons may be chained, for example 
+a
+ 
+<=
+ 
+b
+ 
+<=
+ 
+c
+.
+
+
+Python uses the words 
+and
+, 
+or
+, 
+not
+ for its boolean operators rather than the symbolic 
+&&
+, 
+||
+, 
+!
+ used in Java and C.
+
+
+Python has a type of expression termed a 
+list comprehension
+ as well as a more general expression termed a 
+generator
+ expression
+.
+[66]
+
+
+Anonymous functions
+ are implemented using 
+lambda expressions
+; however, these are limited in that the body can only be one expression.
+
+
+Conditional expressions in Python are written as 
+x
+ 
+if
+ 
+c
+ 
+else
+ 
+y
+[93]
+ (different in order of operands from the 
+c ? x : y
+ operator common to many other languages).
+
+
+Python makes a distinction between 
+lists
+ and 
+tuples
+. Lists are written as 
+[
+1
+,
+ 
+2
+,
+ 
+3
+]
+, are mutable, and cannot be used as the keys of dictionaries (dictionary keys must be 
+immutable
+ in Python). Tuples are written as 
+(
+1
+,
+ 
+2
+,
+ 
+3
+)
+, are immutable and thus can be used as the keys of dictionaries, provided all elements of the tuple are immutable. The 
++
+ operator can be used to concatenate two tuples, which does not directly modify their contents, but rather produces a new tuple containing the elements of both provided tuples. Thus, given the variable 
+t
+ initially equal to 
+(
+1
+,
+ 
+2
+,
+ 
+3
+)
+, executing 
+t
+ 
+=
+ 
+t
+ 
++
+ 
+(
+4
+,
+ 
+5
+)
+ first evaluates 
+t
+ 
++
+ 
+(
+4
+,
+ 
+5
+)
+, which yields 
+(
+1
+,
+ 
+2
+,
+ 
+3
+,
+ 
+4
+,
+ 
+5
+)
+, which is then assigned back to 
+t
+, thereby effectively "modifying the contents" of 
+t
+, while conforming to the immutable nature of tuple objects. Parentheses are optional for tuples in unambiguous contexts.
+[94]
+
+
+Python features 
+sequence unpacking
+ wherein multiple expressions, each evaluating to anything that can be assigned to (a variable, a writable property, etc.), are associated in an identical manner to that forming tuple literals and, as a whole, are put on the left-hand side of the equal sign in an assignment statement. The statement expects an 
+iterable
+ object on the right-hand side of the equal sign that produces the same number of values as the provided writable expressions when iterated through and will iterate through it, assigning each of the produced values to the corresponding expression on the left.
+[95]
+
+
+Python has a "string format" operator 
+%
+. This functions analogously to 
+printf
+ format strings in 
+C
+, e.g. 
+"spam=
+%s
+ eggs=
+%d
+"
+ 
+%
+ 
+(
+"blah"
+,
+ 
+2
+)
+ evaluates to 
+"spam=blah eggs=2"
+. In Python 3 and 2.6+, this was supplemented by the 
+format()
+ method of the 
+str
+ class, e.g. 
+"spam=
+{0}
+ eggs=
+{1}
+"
+.
+format
+(
+"blah"
+,
+ 
+2
+)
+. Python 3.6 added "f-strings": 
+blah
+ 
+=
+ 
+"blah"
+;
+ 
+eggs
+ 
+=
+ 
+2
+;
+ 
+f
+'spam=
+{
+blah
+}
+ eggs=
+{
+eggs
+}
+'
+.
+[96]
+
+
+Strings in Python can be 
+concatenated
+, by "adding" them (same operator as for adding integers and floats). E.g. 
+"spam"
+ 
++
+ 
+"eggs"
+ returns 
+"spameggs"
+. Even if your strings contain numbers, they are still added as strings rather than integers. E.g. 
+"2"
+ 
++
+ 
+"2"
+ returns 
+"22"
+.
+
+
+Python has various kinds of 
+string literals
+:
+
+Strings delimited by single or double quote marks. Unlike in 
+Unix shells
+, 
+Perl
+ and Perl-influenced languages, single quote marks and double quote marks function identically. Both kinds of string use the backslash (
+\
+) as an 
+escape character
+. 
+String interpolation
+ became available in Python 3.6 as "formatted string literals".
+[96]
+
+
+Triple-quoted strings, which begin and end with a series of three single or double quote marks. They may span multiple lines and function like 
+here documents
+ in shells, Perl and 
+Ruby
+.
+
+
+Raw string
+ varieties, denoted by prefixing the string literal with an 
+r
+. Escape sequences are not interpreted; hence raw strings are useful where literal backslashes are common, such as 
+regular expressions
+ and 
+Windows
+-style paths. Compare "
+@
+-quoting" in 
+C#
+.
+
+
+Python has 
+array index
+ and 
+array slicing
+ expressions on lists, denoted as 
+a[key]
+, 
+a
+[
+start
+:
+stop
+]
+ or 
+a
+[
+start
+:
+stop
+:
+step
+]
+. Indexes are 
+zero-based
+, and negative indexes are relative to the end. Slices take elements from the 
+start
+ index up to, but not including, the 
+stop
+ index. The third slice parameter, called 
+step
+ or 
+stride
+, allows elements to be skipped and reversed. Slice indexes may be omitted, for example 
+a
+[:]
+ returns a copy of the entire list. Each element of a slice is a 
+shallow copy
+.
+Strings delimited by single or double quote marks. Unlike in 
+Unix shells
+, 
+Perl
+ and Perl-influenced languages, single quote marks and double quote marks function identically. Both kinds of string use the backslash (
+\
+) as an 
+escape character
+. 
+String interpolation
+ became available in Python 3.6 as "formatted string literals".
+[96]
+
+
+Triple-quoted strings, which begin and end with a series of three single or double quote marks. They may span multiple lines and function like 
+here documents
+ in shells, Perl and 
+Ruby
+.
+
+
+Raw string
+ varieties, denoted by prefixing the string literal with an 
+r
+. Escape sequences are not interpreted; hence raw strings are useful where literal backslashes are common, such as 
+regular expressions
+ and 
+Windows
+-style paths. Compare "
+@
+-quoting" in 
+C#
+.
+List comprehensions
+ vs. 
+for
+-loops
+
+
+Conditional
+ expressions vs. 
+if
+ blocks
+
+
+The 
+eval()
+ vs. 
+exec()
+ built-in functions (in Python 2, 
+exec
+ is a statement); the former is for expressions, the latter is for statements.
+Python 2.1 and earlier used C's division behavior. The 
+/
+ operator is integer division if both operands are integers, and floating-point division otherwise. Integer division rounds towards 0, e.g. 
+7
+/
+3
+ 
+==
+ 
+2
+ and 
+-
+7
+/
+3
+ 
+==
+ 
+-
+2
+.
+
+
+Python 2.2 changed integer division to round towards negative infinity, e.g. 
+7/3 == 2
+ and 
+-7/3 == -3
+. The floor division 
+//
+ operator was introduced. So 
+7//3 == 2
+, 
+-7//3 == -3
+, 
+7.5//3 == 2.0
+ and 
+-7.5//3 == -3.0
+. Adding 
+from
+ 
+__future__
+ 
+import
+ 
+division
+ causes a module to use Python 3.0 rules for division (see next).
+
+
+Python 3.0 changed 
+/
+ to always be floating-point division, e.g. 
+5
+/
+2
+ 
+==
+ 
+2.5
+.
+Automation
+
+
+Data analytics
+
+
+Databases
+
+
+Documentation
+
+
+Graphical user interfaces
+
+
+Image processing
+
+
+Machine learning
+
+
+Mobile App
+
+
+Multimedia
+
+
+Computer Networking
+
+
+Scientific computing
+
+
+System administration
+
+
+Test frameworks
+
+
+Text processing
+
+
+Web frameworks
+
+
+Web scraping
+PyPy
+ is a fast, compliant interpreter of Python 2.7 and 3.6.
+[131]
+ Its 
+just-in-time compiler
+ brings a significant speed improvement over CPython but several libraries written in C cannot be used with it.
+[132]
+[133]
+
+
+Stackless Python
+ is a significant fork of CPython that implements 
+microthreads
+; it does not use the 
+call stack
+ in the same way, thus allowing massively concurrent programs. PyPy also has a stackless version.
+[134]
+
+
+MicroPython
+ and 
+CircuitPython
+ are Python 3 variants optimized for 
+microcontrollers
+, including 
+Lego Mindstorms EV3
+.
+[135]
+
+
+Pyston is a variant of the Python runtime that uses just-in-time compilation to speed up the execution of Python programs.
+[136]
+
+
+Cinder is a performance-oriented fork of CPython 3.8 that contains a number of optimizations including bytecode inline caching, eager evaluation of coroutines, a method-at-a-time 
+JIT
+ and an experimental bytecode compiler.
+[137]
+Google began a project named 
+Unladen Swallow
+ in 2009, with the aim of speeding up the Python interpreter fivefold by using the 
+LLVM
+, and of improving its multithreading ability to scale to thousands of cores,
+[138]
+ while ordinary implementations suffer from the 
+global interpreter lock
+.
+
+
+Psyco
+ is a discontinued 
+just-in-time
+ 
+specializing
+ compiler (which didn't support Python 2.7 or later) that integrates with CPython and transforms bytecode to machine code at runtime. The emitted code is specialized for certain 
+data types
+ and is faster than the standard Python code.
+PyS60
+ was a Python 2 interpreter for 
+Series 60
+ mobile phones released by 
+Nokia
+ in 2005. It implemented many of the modules from the standard library and some additional modules for integrating with the 
+Symbian
+ operating system. The Nokia 
+N900
+ also supports Python with 
+GTK
+ widget libraries, enabling programs to be written and run on the target device.
+[139]
+Cython
+ compiles (a superset of) Python 2.7 to 
+C
+ (while the resulting code is also usable with Python 3 and also e.g. 
+C++
+).
+
+
+Nuitka
+ compiles Python into C++.
+[140]
+
+
+Pythran compiles a subset of Python 3 to 
+C++
+.
+[141]
+[142]
+[143]
+
+
+Pyrex
+ (latest release in 2010) and 
+Shed Skin
+ (latest release in 2013) compile to C and C++ respectively.
+
+
+Google's Grumpy (latest release in 2017) 
+transpiles
+ Python 2 to 
+Go
+.
+[144]
+[145]
+[146]
+
+
+IronPython
+ (now abandoned by Microsoft) allows running Python 2.7 programs on the .NET 
+Common Language Runtime
+.
+[147]
+
+
+Jython
+ compiles Python 2.7 to Java bytecode, allowing the use of the Java libraries from a Python program.
+[148]
+
+
+MyHDL
+ is a Python-based 
+hardware description language
+ (HDL), that converts MyHDL code to 
+Verilog
+ or 
+VHDL
+ code.
+
+
+Numba
+ uses 
+LLVM
+ to compile a subset of Python to machine code.
+
+
+Brython,
+[149]
+ Transcrypt
+[150]
+[151]
+ and 
+Pyjs
+ (latest release in 2012) compile Python to 
+JavaScript
+.
+
+
+RPython
+ can be compiled to 
+C
+, and is used to build the PyPy interpreter of Python.
+Backward-incompatible versions, where code is expected to break and needs to be manually 
+ported
+. The first part of the version number is incremented. These releases happen infrequently—version 3.0 was released 8 years after 2.0.
+
+
+Major or "feature" releases, occurred about every 18 months but with the adoption of a yearly release cadence starting with Python 3.9 are expected to happen once a year.
+[158]
+[159]
+ They are largely compatible but introduce new features. The second part of the version number is incremented. Each major version is supported by bugfixes for several years after its release.
+[160]
+
+
+Bugfix releases,
+[161]
+ which introduce no new features, occur about every 3 months and are made when a sufficient number of bugs have been fixed upstream since the last release. Security vulnerabilities are also patched in these releases. The third and final part of the version number is incremented.
+[161]
+Boo
+ uses indentation, a similar syntax, and a similar object model.
+[206]
+
+
+Cobra
+ uses indentation and a similar syntax, and its 
+Acknowledgements
+ document lists Python first among languages that influenced it.
+[207]
+
+
+CoffeeScript
+, a 
+programming language
+ that cross-compiles to JavaScript, has Python-inspired syntax.
+
+
+ECMAScript
+/
+JavaScript
+ borrowed 
+iterators
+ and 
+generators
+ from Python.
+[208]
+
+
+GDScript
+, a scripting language very similar to Python, built-in to the 
+Godot
+ game engine.
+[209]
+
+
+Go
+ is designed for the "speed of working in a dynamic language like Python"
+[210]
+ and shares the same syntax for slicing arrays.
+
+
+Groovy
+ was motivated by the desire to bring the Python design philosophy to 
+Java
+.
+[211]
+
+
+Julia
+ was designed to be "as usable for general programming as Python".
+[25]
+
+
+Nim
+ uses indentation and similar syntax.
+[212]
+
+
+Ruby
+'s creator, 
+Yukihiro Matsumoto
+, has said: "I wanted a scripting language that was more powerful than Perl, and more object-oriented than Python. That's why I decided to design my own language."
+[213]
+
+
+Swift
+, a programming language developed by Apple, has some Python-inspired syntax.
+[214]
+
+
+Computer programming portal
+
+
+Free and open-source software portal
+Python syntax and semantics
+
+
+pip (package manager)
+
+
+Differentiable programming
+"Python for Artificial Intelligence"
+. Wiki.python.org. 19 July 2012. Archived from 
+the original
+ on 1 November 2012
+. Retrieved 
+3 December
+ 2012
+.
+
+
+Paine, Jocelyn, ed. (August 2005). 
+"AI in Python"
+. 
+AI Expert Newsletter
+. Amzi!. Archived from 
+the original
+ on 26 March 2012
+. Retrieved 
+11 February
+ 2012
+.
+
+
+"PyAIML 0.8.5 : Python Package Index"
+. Pypi.python.org
+. Retrieved 
+17 July
+ 2013
+.
+
+
+Russell, Stuart J.
+ & 
+Norvig, Peter
+ (2009). 
+Artificial Intelligence: A Modern Approach
+ (3rd ed.). Upper Saddle River, NJ: Prentice Hall. 
+ISBN
+ 
+978-0-13-604259-4
+.
+Downey, Allen B. (May 2012). 
+Think Python: How to Think Like a Computer Scientist
+ (Version 1.6.6 ed.). 
+ISBN
+ 
+978-0-521-72596-5
+.
+
+
+Hamilton, Naomi (5 August 2008). 
+"The A-Z of Programming Languages: Python"
+. 
+Computerworld
+. Archived from 
+the original
+ on 29 December 2008
+. Retrieved 
+31 March
+ 2010
+.
+
+
+Lutz, Mark (2013). 
+Learning Python
+ (5th ed.). O'Reilly Media. 
+ISBN
+ 
+978-0-596-15806-4
+.
+
+
+Pilgrim, Mark (2004). 
+Dive into Python
+. Apress. 
+ISBN
+ 
+978-1-59059-356-1
+.
+
+
+Pilgrim, Mark (2009). 
+Dive into Python 3
+. Apress. 
+ISBN
+ 
+978-1-4302-2415-0
+.
+
+
+Summerfield, Mark (2009). 
+Programming in Python 3
+ (2nd ed.). Addison-Wesley Professional. 
+ISBN
+ 
+978-0-321-68056-3
+.
+Media
+ from Wikimedia Commons
+Quotations
+ from Wikiquote
+Textbooks
+ from Wikibooks
+Resources
+ from Wikiversity
+Data
+ from Wikidata
+Official website
+ 
+v
+t
+e
+CircuitPython
+
+
+CLPython
+
+
+CPython
+
+
+Cython
+
+
+MicroPython
+
+
+Numba
+
+
+IronPython
+
+
+Jython
+
+
+Psyco
+
+
+PyPy
+
+
+Python for S60
+
+
+Shed Skin
+
+
+Stackless Python
+
+
+Unladen Swallow
+
+
+more
+...
+Boa
+
+
+Eric Python IDE
+
+
+IDLE
+
+
+PyCharm
+
+
+PyDev
+
+
+Ninja-IDE
+
+
+more
+...
+WSGI
+software (list)
+
+
+Python Software Foundation
+
+
+PyCon
+v
+t
+e
+Comparison
+
+
+Timeline
+
+
+History
+Ada
+
+
+ALGOL
+
+
+APL
+
+
+Assembly
+
+
+BASIC
+
+
+C
+
+
+C++
+
+
+C#
+
+
+COBOL
+
+
+Erlang
+
+
+Forth
+
+
+Fortran
+
+
+Go
+
+
+Haskell
+
+
+Java
+
+
+JavaScript
+
+
+Kotlin
+
+
+Lisp
+
+
+Lua
+
+
+ML
+
+
+Pascal
+
+
+Perl
+
+
+PHP
+
+
+Prolog
+
+
+Python
+
+
+R
+
+
+Ruby
+
+
+Rust
+
+
+SQL
+
+
+Shell
+
+
+Simula
+
+
+Smalltalk
+
+
+Swift
+
+
+more...
+ 
+Category
+
+
+ 
+Lists:
+ 
+Alphabetical
+
+
+Categorical
+
+
+Generational
+
+
+Non-English-based
+v
+t
+e
+Bottle
+
+
+CherryPy
+
+
+CubicWeb
+
+
+Django
+
+
+FastAPI
+
+
+Flask
+
+
+Grok
+
+
+Nagare
+
+
+Nevow
+
+
+Pylons
+
+
+Pyramid
+
+
+Quixote
+
+
+TACTIC
+
+
+Tornado
+
+
+TurboGears
+
+
+TwistedWeb
+
+
+Webware
+
+
+web2py
+
+
+Zope 2
+
+
+more
+...
+v
+t
+e
+Differentiable programming
+
+
+Neural Turing machine
+
+
+Differentiable neural computer
+
+
+Automatic differentiation
+
+
+Neuromorphic engineering
+
+
+Cable theory
+
+
+Pattern recognition
+
+
+Computational learning theory
+
+
+Tensor calculus
+Gradient descent
+
+
+SGD
+
+
+Clustering
+
+
+Regression
+
+
+Overfitting
+
+
+Adversary
+
+
+Attention
+
+
+Convolution
+
+
+Loss functions
+
+
+Backpropagation
+
+
+Normalization
+
+
+Activation
+
+
+Softmax
+
+
+Sigmoid
+
+
+Rectifier
+
+
+Regularization
+
+
+Datasets
+
+
+Augmentation
+SGD
+Overfitting
+Softmax
+
+
+Sigmoid
+
+
+Rectifier
+Augmentation
+Python
+
+
+Julia
+Machine learning
+
+
+Artificial neural network
+
+
+Deep learning
+
+
+Scientific computing
+
+
+Artificial Intelligence
+Deep learning
+IPU
+
+
+TPU
+
+
+VPU
+
+
+Memristor
+
+
+SpiNNaker
+TensorFlow
+
+
+PyTorch
+
+
+Keras
+
+
+Theano
+AlexNet
+
+
+WaveNet
+
+
+Human image synthesis
+
+
+HWR
+
+
+OCR
+
+
+Speech synthesis
+
+
+Speech recognition
+
+
+Facial recognition
+
+
+AlphaFold
+
+
+DALL-E
+Word2vec
+
+
+Transformer
+
+
+BERT
+
+
+NMT
+
+
+Project Debater
+
+
+Watson
+
+
+GPT-2
+
+
+GPT-3
+AlphaGo
+
+
+Q-learning
+
+
+SARSA
+
+
+OpenAI Five
+
+
+Self-driving car
+
+
+MuZero
+
+
+Action selection
+
+
+Robot control
+Alex Graves
+
+
+Ian Goodfellow
+
+
+Yoshua Bengio
+
+
+Geoffrey Hinton
+
+
+Yann LeCun
+
+
+Andrew Ng
+
+
+Demis Hassabis
+
+
+David Silver
+
+
+Fei-Fei Li
+DeepMind
+
+
+OpenAI
+
+
+MIT CSAIL
+
+
+Mila
+
+
+Google Brain
+
+
+FAIR
+ Portals
+
+Computer programming
+
+
+Technology
+
+
+ Category
+
+Artificial neural networks
+
+
+Machine learning
+Computer programming
+
+
+Technology
+Artificial neural networks
+
+
+Machine learning
+v
+t
+e
+Alternative terms for free software
+
+
+Comparison of open-source and closed-source software
+
+
+Comparison of source-code-hosting facilities
+
+
+Free software
+
+
+Free software project directories
+
+
+Gratis versus libre
+
+
+Long-term support
+
+
+Open-source software
+
+
+Open-source software development
+
+
+Outline
+
+
+Timeline
+Audio
+
+
+Bioinformatics
+
+
+Codecs
+
+
+Configuration management
+
+
+Graphics
+
+
+Wireless
+
+
+Geophysics
+
+
+Health
+
+
+Mathematics
+
+
+Operating systems
+
+
+Programming languages
+
+
+Routing
+
+
+Television
+
+
+Video games
+
+
+Web applications
+
+
+E-commerce
+
+
+Android apps
+
+
+iOS apps
+
+
+Commercial
+
+
+Trademarked
+
+
+Formerly proprietary
+
+
+Formerly open-source
+Graphics
+
+
+Wireless
+E-commerce
+Free software movement
+
+
+History
+
+
+Open-source-software movement
+
+
+Organizations
+
+
+Events
+AFL
+
+
+Apache
+
+
+APSL
+
+
+Artistic
+
+
+Beerware
+
+
+BSD
+
+
+Creative Commons
+
+
+CDDL
+
+
+EPL
+
+
+Free Software Foundation
+
+
+GNU GPL
+
+
+GNU LGPL
+
+
+ISC
+
+
+MIT
+
+
+MPL
+
+
+Python
+
+
+Python Software Foundation License
+
+
+Shared Source Initiative
+
+
+Sleepycat
+
+
+Unlicense
+
+
+WTFPL
+
+
+zlib
+GNU GPL
+
+
+GNU LGPL
+Comparison of licenses
+
+
+Contributor License Agreement
+
+
+Copyleft
+
+
+Debian Free Software Guidelines
+
+
+Definition of Free Cultural Works
+
+
+Free license
+
+
+The Free Software Definition
+
+
+The Open Source Definition
+
+
+Open-source license
+
+
+Permissive software license
+
+
+Public domain
+
+
+Viral license
+Digital rights management
+
+
+Hardware restrictions
+
+
+License proliferation
+
+
+Mozilla software rebranding
+
+
+Proprietary device drivers
+
+
+Proprietary firmware
+
+
+Proprietary software
+
+
+SCO/Linux controversies
+
+
+Software patents
+
+
+Software security
+
+
+Trusted Computing
+Forking
+
+
+GNU Manifesto
+
+
+Microsoft Open Specification Promise
+
+
+Open-core model
+
+
+Open-source hardware
+
+
+Shared Source Initiative
+
+
+Source-available software
+
+
+The Cathedral and the Bazaar
+
+
+Revolution OS
+ 
+Portal
+
+
+ 
+Category
+v
+t
+e
+Dataplot
+
+
+Epi Info
+
+
+CSPro
+
+
+X-12-ARIMA
+ADMB
+
+
+DAP
+
+
+gretl
+
+
+JASP
+
+
+JAGS
+
+
+JMulTi
+
+
+Julia
+
+
+Jupyter
+ (
+Ju
+lia, 
+Py
+thon, 
+R
+)
+
+
+GNU Octave
+
+
+OpenBUGS
+
+
+Orange
+
+
+PSPP
+
+
+Python
+ (
+statsmodels
+, 
+PyMC3
+, 
+IPython
+, 
+IDLE
+)
+
+
+R
+ (
+RStudio
+)
+
+
+SageMath
+
+
+SimFiT
+
+
+SOFA Statistics
+
+
+Stan
+
+
+XLispStat
+BV4.1
+
+
+CumFreq
+
+
+SegReg
+
+
+XploRe
+
+
+WinBUGS
+Data Desk
+
+
+GAUSS
+
+
+GraphPad InStat
+
+
+GraphPad Prism
+
+
+IBM 
+SPSS
+ Statistics
+
+
+IBM 
+SPSS Modeler
+
+
+JMP
+
+
+Maple
+
+
+Mathcad
+
+
+Mathematica
+
+
+MATLAB
+
+
+OxMetrics
+
+
+RATS
+
+
+Revolution Analytics
+
+
+SAS
+
+
+SmartPLS
+
+
+Stata
+
+
+StatView
+
+
+SUDAAN
+
+
+S-PLUS
+
+
+TSP
+
+
+World Programming System
+ (WPS)
+BMDP
+
+
+EViews
+
+
+GenStat
+
+
+LIMDEP
+
+
+LISREL
+
+
+MedCalc
+
+
+Microfit
+
+
+Minitab
+
+
+MLwiN
+
+
+NCSS
+
+
+SHAZAM
+
+
+SigmaStat
+
+
+Statistica
+
+
+StatsDirect
+
+
+StatXact
+
+
+SYSTAT
+
+
+The Unscrambler
+
+
+UNISTAT
+Analyse-it
+
+
+SigmaXL
+
+
+UNISTAT
+ for Excel
+
+
+XLfit
+
+
+RExcel
+Category
+
+
+Comparison
+v
+t
+e
+Advanced Simulation Library
+
+
+ADMB
+
+
+Chapel
+
+
+Euler
+
+
+Fortress
+
+
+FreeFem++
+
+
+FreeMat
+
+
+Genius
+
+
+Gmsh
+
+
+GNU Octave
+
+
+gretl
+
+
+Julia
+
+
+Jupyter
+ (
+Ju
+lia, 
+Py
+thon, 
+R
+; 
+IPython
+)
+
+
+MFEM
+
+
+OpenFOAM
+
+
+Python
+
+
+R
+
+
+SageMath
+
+
+Salome
+
+
+ScicosLab
+
+
+Scilab
+
+
+X10
+
+
+Weka
+DADiSP
+
+
+FEATool Multiphysics
+
+
+GAUSS
+
+
+LabVIEW
+
+
+Maple
+
+
+Mathcad
+
+
+Mathematica
+
+
+MATLAB
+
+
+Speakeasy
+
+
+VisSim
+Comparison
+BNF
+: 
+cb13560465c
+ 
+(data)
+
+
+GND
+: 
+4434275-5
+
+
+LCCN
+: 
+sh96008834
+
+
+MA
+: 
+519991488
+
+
+SUDOC
+: 
+051626225
+Python (programming language)
+Class-based programming languages
+Computational notebook
+Computer science in the Netherlands
+Cross-platform free software
+Cross-platform software
+Dutch inventions
+Dynamically typed programming languages
+Educational programming languages
+High-level programming languages
+Information technology in the Netherlands
+Multi-paradigm programming languages
+Object-oriented programming languages
+Programming languages
+Programming languages created in 1991
+Scripting languages
+Text-oriented programming languages
+Articles with short description
+Short description is different from Wikidata
+Use dmy dates from August 2020
+Articles to be merged from January 2021
+All articles to be merged
+Articles containing potentially dated statements from March 2021
+All articles containing potentially dated statements
+Articles containing potentially dated statements from February 2021
+Pages using Sister project links with wikidata namespace mismatch
+Pages using Sister project links with hidden wikidata
+Wikipedia articles with BNF identifiers
+Wikipedia articles with GND identifiers
+Wikipedia articles with LCCN identifiers
+Wikipedia articles with MA identifiers
+Wikipedia articles with SUDOC identifiers
+Articles with example Python (programming language) code
+Good articles
+Not logged in
+Talk
+Contributions
+Create account
+Log in
+Article
+Talk
+Read
+Edit
+View history
+Main page
+Contents
+Current events
+Random article
+About Wikipedia
+Contact us
+Donate
+Help
+Learn to edit
+Community portal
+Recent changes
+Upload file
+What links here
+Related changes
+Upload file
+Special pages
+Permanent link
+Page information
+Cite this page
+Wikidata item
+Download as PDF
+Printable version
+Wikimedia Commons
+Wikibooks
+Wikiquote
+Wikiversity
+Afrikaans
+Alemannisch
+Asturianu
+Basa Bali
+Áåëàðóñêàÿ
+Áúëãàðñêè
+Bosanski
+Cebuano
+Cymraeg
+Dansk
+Deutsch
+Eesti
+Esperanto
+Euskara
+Galego
+Hrvatski
+Bahasa Indonesia
+Interlingua
+Italiano
+Kiswahili
+Êûðãûç÷à
+Latina
+La .lojban.
+Lumbaart
+Magyar
+Ìàêåäîíñêè
+Bahasa Melayu
+Ìîíãîë
+Na Vosa Vakaviti
+Nederlands
+Norsk nynorsk
+Polski
+Ðóññêèé
+Ñàõà òûëà
+Scots
+Shqip
+Simple English
+Ñðïñêè / srpski
+Srpskohrvatski / ñðïñêîõðâàòñêè
+Suomi
+Svenska
+Tagalog
+Óêðà¿íñüêà
+Walon
+Winaray
+
+
+ This page was last edited on 10 May 2021, at 18:16
+ (UTC)
+.
+
+
+Text is available under the 
+Creative Commons Attribution-ShareAlike License
+;
+additional terms may apply.  By using this site, you agree to the 
+Terms of Use
+ and 
+Privacy Policy
+. Wikipedia® is a registered trademark of the 
+Wikimedia Foundation, Inc.
+, a non-profit organization.
+
+
+
+
+Privacy policy
+
+
+About Wikipedia
+
+
+Disclaimers
+
+
+Contact Wikipedia
+
+
+Mobile view
+
+
+Developers
+
+
+Statistics
+
+
+Cookie statement
+
+
+
+
+
+
+
+

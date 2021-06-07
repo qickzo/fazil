@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/YT search.iml" filepath="$PROJECT_DIR$/.idea/YT search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../python-flask-E-learning-platform/.idea/python-flask-E-learning-platform.iml" filepath="$PROJECT_DIR$/../../python-flask-E-learning-platform/.idea/python-flask-E-learning-platform.iml" />
     </modules>
   </component>
 </project>

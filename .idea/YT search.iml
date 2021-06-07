@@ -7,5 +7,6 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (Qickskill)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="python-flask-E-learning-platform" />
   </component>
 </module>
