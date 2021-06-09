@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}Generated Course{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
+        <div class="container">
+            <br>
+            <br>
+            <br>
+            <div id="accordion">
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+                {% for i in range(data_count) %}
+
+                <div class="card"
+                     style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
+                    <div class="card-header bg-light" id="heading{{ i }}">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ i }}"
+                                    aria-expanded="true"
+                                    aria-controls="collapse{{ i }}">
+                                {{ complt_data[i]['skill'] }}
+                            </button>
+                        </h5>
+                    </div>
+
+
+                    <div id="collapse{{ i }}" class="collapse" aria-labelledby="heading{{ i }}"
+                         data-parent="#accordion">
+                        <div class="card-body">
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+                        {% if complt_data[i]['nested']  %}
+
+                        <div id="acrdn">
+                             {% for k in range(complt_data[i]['count']) %}
+                                <div class="card" style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
+                                    <div class="card-header bg-light" id="heading{{ k+100 }}">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ k+100 }}"
+                                                    aria-expanded="true"
+                                                    aria-controls="collapse{{ k+100 }}">
+                                                {{ complt_data[i]['videos'][k]['skill'] }}
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapse{{ k+100 }}" class="collapse" aria-labelledby="heading{{ k+100 }}" data-parent="#acrdn">
+                                        <div class="card-body">
+                                            {% for j in complt_data[i]['videos'][k] %}
+                                            {% if j != 'skill' %}
+                                            <div class="container p-7 border-primary text-primary mt-5 text-white">
+                                                <h1>{{ complt_data[i]['videos'][k][j]['title'] }}</h1>
+                                                <div class="container my-5">
+                                                    <div class="embed-responsive embed-responsive-16by9">
+
+                                                        <iframe class="embed-responsive-item" style="align-content: center;"
+                                                                src="https://www.youtube.com/embed/{{ complt_data[i]['videos'][k][j]['v_id'] }}?rel=0&modestbranding=1"
+                                                                allowfullscreen></iframe>
+                                                        <br><br>
+                                                    </div>
+                                                </div>
+                                                <h3>views: {{ complt_data[i]['videos'][k][j]['view_count'] }}</h3><br>
+                                                <h3>likes: {{ complt_data[i]['videos'][k][j]['like_count'] }}</h3><br>
+                                                <h3>dislike: {{ complt_data[i]['videos'][k][j]['dislike_count'] }}</h3><br>
+                                                <h3>category : {{ complt_data[i]['videos'][k][j]['cid'] }}</h3>
+                                                <h3><a href="{{ complt_data[i]['videos'][k][j]['url'] }}">url</a></h3>
+                                            </div>
+                                            {% endif %}
+                                            {% endfor %}
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                        </div>
+
+                        {% else %}
+
+
+                                {% for j in complt_data[i] %}
+                                {% if j != 'skill' and j!='nested' %}
+                                <div class="container p-7 border-primary text-primary mt-5 text-white">
+                                    <h1>{{ complt_data[i][j]['title'] }}</h1>
+                                    <div class="container my-5">
+                                        <div class="embed-responsive embed-responsive-16by9">
+
+                                            <iframe class="embed-responsive-item" style="align-content: center;"
+                                                    src="https://www.youtube.com/embed/{{ complt_data[i][j]['v_id'] }}?rel=0&modestbranding=1"
+                                                    allowfullscreen></iframe>
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                    <h3>views: {{ complt_data[i][j]['view_count'] }}</h3><br>
+                                    <h3>likes: {{ complt_data[i][j]['like_count'] }}</h3><br>
+                                    <h3>dislike: {{ complt_data[i][j]['dislike_count'] }}</h3><br>
+                                    <h3>category : {{ complt_data[i][j]['cid'] }}</h3>
+                                    <h3><a href="{{ complt_data[i][j]['url'] }}">url</a></h3>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+
+
+                        {% endif %}
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <a class="btn btn-primary" style="margin-left:45%; margin-top:2%; margin-bottom:6%;" href="/enroll">Enroll</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

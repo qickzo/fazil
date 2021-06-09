@@ -1,0 +1,44 @@
+{
+  "topic": [
+    "html",
+    [
+       "css",
+       "Bootstrap",
+       "Foundation"
+    ],
+    [
+      "javascript",
+      "Jquery",
+      "angular",
+      "react",
+      "vue",
+      "next.js"
+    ],
+    [
+       "python",
+       "Flask",
+       "Django",
+       "Bottle",
+       "Pyramid"
+    ],
+    [
+       "Nodejs",
+       "Express"
+    ],
+    [
+        "PHP",
+        "laravel",
+        "codeigniter"
+    ],
+    [
+       "Ruby",
+       "Ruby on Rails",
+       "Sinatra"
+    ],
+
+     "SQL",
+     "MongoDb",
+     "Redis"
+
+  ]
+}
