@@ -1,67 +1,35 @@
-{% extends 'base.html'%}
-{% block title%}Dashboard{% endblock %}
+{% extends "base.html" %}
+{% block title %}Courses{% endblock %}
 
-{% block content%}
-<div>
-<!--    <link rel="stylesheet" href="{{url_for('static',filename='dashboard.css')}}">-->
+{% block content %}
 <div
-     style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
-    <div class="col-12"><div class="container"><br><br><br></div> </div>
-    <div class="container" style="padding-bottom:8%;">
-        <div class="row border border-dark">
-            <div class="col-12 mt-5 pt-2 text-secondary" style="padding-left:3%">
-                <h3> Edit Your Account Details</h3>
-            </div>
-            <div class="col-md-8 col-sm-12 col-12" style="padding-top:2%;padding-bottom:5%;padding-left:3%;">
-
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Name</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                               placeholder="Enter name" value="{{ name }}" >
-
+        style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <div id="accordion">
+            {% for skill in course %}
+                <div class="card-header bg-light" id="heading{{ i }}" style="margin:5px">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ i }}"
+                                    aria-expanded="true"
+                                    aria-controls="collapse{{ i }}">
+                                {{ skill['skill'] }}
+                            </button>
+                        </h5>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                              value="{{ email }}" placeholder="Enter email">
 
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-
-            </div>
-            <div class="col-md-2 col-sm-12 col-12 "></div>
-<!--            <div class="col-md-2 col-sm-12 col-12" style="padding-top:2%;padding-bottom:5%;">-->
-<!--                <div class="form-group1">-->
-<!--                    <a href='https://www.freecodecamp.org/'>-->
-<!--                        <button>Edit profile</button>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <br>-->
-
-<!--                <div class="form-group1">-->
-<!--                    <a href='https://www.freecodecamp.org/'>-->
-<!--                        <button>courses</button>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <br>-->
-<!--                <div class="form-group1">-->
-<!--                    <a href='https://www.freecodecamp.org/'>-->
-<!--                        <button>settings</button>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
+            {% endfor %}
         </div>
-    </div>
+        <br>
+        <br>
+        <br>
+        <br>
 </div>
+
+
 </div>
+
+
 {% endblock %}

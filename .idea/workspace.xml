@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="f7c4a125-9447-477e-b219-60ad46090879" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/complt.py" beforeDir="false" afterPath="$PROJECT_DIR$/complt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fazil/fazil" beforeDir="false" afterPath="$PROJECT_DIR$/fazil/fazil" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fazil/fazil/templates/change_password.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/fazil/fazil/templates/course.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/fazil/fazil/templates/otp_request.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/fazil/fazil/templates/reset_password_request.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fazil/fazil/yt_NApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/fazil/fazil/yt_NApi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yt_NApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/yt_NApi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../python-flask-E-learning-platform/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../python-flask-E-learning-platform/main.py" afterDir="false" />
     </list>
@@ -20,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -349,9 +352,9 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/complt.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/yt_NApi.py</url>
+          <line>304</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

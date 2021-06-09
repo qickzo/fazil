@@ -120,7 +120,7 @@ def sign_up():
             return render_template('signup.html', message=message)
         else:
             hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
-            user_input = {'name': user, 'email': email, 'password': hashed}
+            user_input = {'name': user, 'email': email, 'password': hashed, 'course': []}
             records.insert_one(user_input)
 
             user_data = records.find_one({"email": email})
@@ -140,7 +140,10 @@ def logged_in():
         email = session["email"]
         name = session["name"]
         authenticated = True
-        return render_template('dashboard.html', name=name.title(), email=email, authenticated=authenticated)
+        course = records.find_one({'email': email})['course']
+        print(type(course))
+        # return render_template('profile.html', name=name.title(), email=email, authenticated=authenticated)
+        return render_template('dashboard.html', course=course)
     else:
         return redirect(url_for("sign_in"))
 
@@ -185,11 +188,26 @@ def logout():
         return  redirect(url_for("sign_in"))
 
 
+@app.route('/enrol')
 @app.route('/enroll')
-def click():
+def enroll():
     if "email" in session:
-        return redirect(url_for('logged_in'))
+        email = session['email']
+        complt_data = session['course']
+        skill = session['skill']
+        userfound = records.find_one({'email': email})
+        course = userfound['course']
+        print("first:\n\n")
+        pprint({"course": course})
+        course.append({'skill': skill, 'skill_data': complt_data})
+        print("second:\n\n")
+        pprint({"course": course})
 
+        records.update({'email': email}, {"$set": {'course': course}})
+        userfound = records.find_one({'email': email})
+        print("last:\n\n")
+        pprint({"course": userfound['course']})
+        # return render_template('')
     return redirect(url_for('sign_in'))
 
 
@@ -320,9 +338,6 @@ def my_form_post():
         f_data.update({'skill': search_keyword.upper()})
         complt_data.append(f_data)
         pprint(complt_data)
-        f = open('complt.py', 'w')
-        f.write('compt = ' + str(complt_data))
-        f.close()
 
         for j in complt_data[0]:
             print(j)
@@ -330,10 +345,10 @@ def my_form_post():
     flag = True
     if "email" in session:
         flag = None
-
-
+    session['course'] = complt_data
+    session['skill'] = search_keyword.title()
     return render_template('shw.html', search_keyword=search_keyword.title(), complt_data=complt_data,
-                           data_count=len(complt_data))
+                           data_count=len(complt_data), flag=flag)
 
 
 if __name__ == '__main__':
