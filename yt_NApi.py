@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, url_for, redirect, session
 import re
 from urllib.request import urlopen
 import json
+from json import load
 from urllib.error import HTTPError
 import pymongo
 import bcrypt
@@ -47,6 +48,29 @@ allowed_categid = [27, 28]
 courses = ['web development', 'app development']
 
 
+@app.route('/delete/<course_name>')
+def delete(course_name):
+    email = session['email']
+    userfound = records.find_one({'email': email})
+    course = userfound['course']
+    for sk in course:
+        if sk['skill'] == course_name:
+            index = course.index(sk)
+            course.remove(course[index])
+    records.update_one({'email': email}, {"$set": {'course': course}})
+    return redirect(url_for("logged_in"))
+
+
+@app.route('/course/<course_name>')
+def course(course_name):
+    email = session['email']
+    userfound = records.find_one({'email': email})
+    course = userfound['course']
+    for sk in course:
+        if sk['skill'] == course_name: c_data =  sk['skill_data']
+
+    return render_template('course.html', search_keyword=course_name.title(), complt_data=c_data,
+                           data_count=len(c_data), course_name=course_name )
 @app.route('/validate', methods=['POST'])
 def validate():
     d1, d2, d3, d4, d5, d6 = request.form.get('d1'), request.form.get('d2'), request.form.get('d3'), request.form.get('d4'),request.form.get('d5'),request.form.get('d6')
@@ -119,7 +143,7 @@ def sign_up():
             return render_template('signup.html', message=message)
         else:
             hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
-            user_input = {'name': user, 'email': email, 'password': hashed}
+            user_input = {'name': user, 'email': email, 'password': hashed, 'course': []}
             records.insert_one(user_input)
 
             user_data = records.find_one({"email": email})
@@ -133,13 +157,16 @@ def sign_up():
     return render_template('signup.html')
 
 
-@app.route('/logged_in')
+@app.route('/courses')
 def logged_in():
     if "email" in session:
         email = session["email"]
         name = session["name"]
         authenticated = True
-        return render_template('dashboard.html', name=name.title(), email=email, authenticated=authenticated)
+        course = records.find_one({'email': email})['course']
+        print(type(course))
+        # return render_template('profile.html', name=name.title(), email=email, authenticated=authenticated)
+        return render_template('dashboard.html', course=course)
     else:
         return redirect(url_for("sign_in"))
 
@@ -184,11 +211,26 @@ def logout():
         return  redirect(url_for("sign_in"))
 
 
-@app.route('/click')
-def click():
+@app.route('/enrol')
+@app.route('/enroll')
+def enroll():
     if "email" in session:
-        return redirect(url_for('logged_in'))
+        email = session['email']
+        complt_data = session['course']
+        skill = session['skill']
+        userfound = records.find_one({'email': email})
+        course = userfound['course']
+        print("first:\n\n")
+        pprint({"course": course})
+        course.append({'skill': skill, 'skill_data': complt_data})
+        print("second:\n\n")
+        pprint({"course": course})
 
+        records.update_one({'email': email}, {"$set": {'course': course}})
+        userfound = records.find_one({'email': email})
+        print("last:\n\n")
+        pprint({"course": userfound['course']})
+        # return render_template('')
     return redirect(url_for('sign_in'))
 
 
@@ -285,29 +327,49 @@ def hello_world():
 @app.route('/', methods=['POST'])
 def my_form_post():
     search_keyword = request.form['text']
+    session['skill'] = search_keyword.title()
     global skill_set
     skill_set = []
     complt_data = []
     if search_keyword.lower() in courses:
-        f = open('skill/{}.txt'.format(search_keyword.lower()), 'r')
-        for skill in f:
-            print('************************{}*************************'.format(skill.replace('\n', '')))
-            f_data = process(skill.replace('\n', ''))
-            f_data.update({'skill': skill.upper()})
-            complt_data.append(f_data)
+        f = open('skill/{}.json'.format(search_keyword.lower()), 'r')
+        f = load(f)
+        for skill in f['topic']:
+            if type(skill) == type(list()):
+                sub_data = {}
+                sub_data.update({'nested': True})
+                videos = []
+                for sub_skill in skill:
+                    print('************************{}*************************'.format(sub_skill))
+                    f_data = process(sub_skill)  # .replace('\n', ''))
+                    f_data.update({'skill': sub_skill.upper()})
+                    if skill.index(sub_skill) == 0:
+                        sub_data.update({'skill': sub_skill})
+                    # else:
+                    #     f_data.update({'title': False, 'choice': True})
+                    videos.append(f_data)
+                sub_data.update({'videos': videos, 'count': len(videos)})
+                complt_data.append(sub_data)
+            else:
+                print('************************{}*************************'.format(skill.replace('\n', '')))
+                f_data = process(skill)
+                f_data.update({'skill': skill.upper(), 'nested': False})
+                complt_data.append(f_data)
+
     else:
         f_data = process(search_keyword)
         f_data.update({'skill': search_keyword.upper()})
         complt_data.append(f_data)
         pprint(complt_data)
+
         for j in complt_data[0]:
             print(j)
     # return render_template('index.html')
     flag = True
     if "email" in session:
         flag = None
-
-    return render_template('show1.html', search_keyword=search_keyword.title(), complt_data=complt_data,
+    session['course'] = complt_data
+    return render_template('shw.html', search_keyword=search_keyword.title(), complt_data=complt_data,
                            data_count=len(complt_data), flag=flag)
 
 
