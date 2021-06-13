@@ -8,18 +8,30 @@
         <br>
         <br>
         <br>
-        <h2 class="ml-2 mb-3 "style="color:#0066cc;"><b>Enrolled Courses</b></h2>
+        <h2 class="ml-2 mb-3 " style="color:#0066cc;"><b>Enrolled Courses</b></h2>
         <div id="accordion">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+
+            {% endfor %}
+
+            {% endif %}
+            {% endwith %}
             {% for skill in course %}
-                <div class="card-header bg-light" id="heading{{ i }}" style="margin:5px">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ i }}"
-                                    aria-expanded="true"
-                                    aria-controls="collapse{{ i }}">
-                                <a href="/course/{{ skill['skill'] }}">{{ skill['skill'] }}</a>
-                            </button>
-                        </h5>
-                    </div>
+            <div class="card-header bg-light" id="heading{{ i }}" style="margin:5px">
+                <h5 class="mb-0">
+                    <button class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ i }}"
+                            aria-expanded="true"
+                            aria-controls="collapse{{ i }}">
+                        <a href="/course/{{ skill['skill'] }}">{{ skill['skill'] }}</a>
+                    </button>
+                </h5>
+            </div>
 
             {% endfor %}
         </div>
@@ -27,7 +39,7 @@
         <br>
         <br>
         <br>
-</div>
+    </div>
 
 
 </div>

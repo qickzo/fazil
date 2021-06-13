@@ -9,6 +9,7 @@
             <br>
             <br>
             <div id="accordion">
+                <form action="/enroll" method="post">
 <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 
@@ -18,11 +19,15 @@
                      style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
                     <div class="card-header bg-light" id="heading{{ i }}">
                         <h5 class="mb-0">
-                            <button class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ i }}"
+                            <button type="button" class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ i }}"
                                     aria-expanded="true"
                                     aria-controls="collapse{{ i }}">
                                 {{ complt_data[i]['skill'] }}
+
                             </button>
+                            {% if not complt_data[i]['nested']  %}
+                                    <input style="margin-left:85%" type="checkbox" name="check" value="{{ complt_data[i]['skill'] }}" checked>
+                                {% endif%}
                         </h5>
                     </div>
 
@@ -35,20 +40,21 @@
 
                         {% if complt_data[i]['nested']  %}
 
-                        <div id="acrdn">
+                        <div id="acrdn{{ i }}">
                              {% for k in range(complt_data[i]['count']) %}
                                 <div class="card" style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
-                                    <div class="card-header bg-light" id="heading{{ k+100 }}">
+                                    <div class="card-header bg-light" id="heading{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}">
                                         <h5 class="mb-0">
-                                            <button class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ k+100 }}"
+                                            <button type="button" class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}"
                                                     aria-expanded="true"
                                                     aria-controls="collapse{{ k+100 }}">
                                                 {{ complt_data[i]['videos'][k]['skill'] }}
                                             </button>
+                                <input style="margin-left:85%" type="checkbox" name="check" value="{{ complt_data[i]['videos'][k]['skill'] }}" checked>
                                         </h5>
                                     </div>
 
-                                    <div id="collapse{{ k+100 }}" class="collapse" aria-labelledby="heading{{ k+100 }}" data-parent="#acrdn">
+                                    <div id="collapse{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}" class="collapse" aria-labelledby="heading{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}" data-parent="#acrdn{{ i }}">
                                         <div class="card-body">
                                             {% for j in complt_data[i]['videos'][k] %}
                                             {% if j != 'skill' %}
@@ -116,8 +122,11 @@
 
 
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                <a class="btn btn-primary" style="margin-left:45%; margin-top:2%; margin-bottom:6%;" href="/enroll">Enroll</a>
+
+                <input type="submit" class="btn btn-primary" style="margin-left:45%; margin-top:2%; margin-bottom:6%;" value="Enroll" >
+            </form>
             </div>
+
         </div>
     </div>
 

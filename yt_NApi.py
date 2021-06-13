@@ -1,7 +1,7 @@
 import urllib
 import os
 from pprint import pprint
-from flask import Flask, render_template, request, url_for, redirect, session
+from flask import Flask, render_template, request, url_for, redirect, session, flash
 import re
 from urllib.request import urlopen
 import json
@@ -11,10 +11,13 @@ import pymongo
 import bcrypt
 import pyotp
 from flask_mail import Message, Mail
+from flask_session import Session
 
 app = Flask(__name__)
 app.secret_key = "testing"
-app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'dhackz101@gmail.com'
 app.config['MAIL_PASSWORD'] = 'mukxgmrdiggumwev'
@@ -27,8 +30,6 @@ db = client.get_database('User_accounts')
 records = db.register
 
 
-
-
 @app.context_processor
 def override_url_for():
     return dict(url_for=dated_url_for)
@@ -39,13 +40,21 @@ def dated_url_for(endpoint, **values):
         filename = values.get('filename', None)
         if filename:
             file_path = os.path.join(app.root_path,
-                                 endpoint, filename)
+                                     endpoint, filename)
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
 
 
 allowed_categid = [27, 28]
 courses = ['web development', 'app development']
+
+
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    if request.method == 'POST':
+        print(request.form.get('hello'))
+
+    return render_template('test.html')
 
 
 @app.route('/delete/<course_name>')
@@ -67,21 +76,24 @@ def course(course_name):
     userfound = records.find_one({'email': email})
     course = userfound['course']
     for sk in course:
-        if sk['skill'] == course_name: c_data =  sk['skill_data']
+        if sk['skill'] == course_name: c_data = sk['skill_data']
 
     return render_template('course.html', search_keyword=course_name.title(), complt_data=c_data,
-                           data_count=len(c_data), course_name=course_name )
+                           data_count=len(c_data), course_name=course_name, authenticated=True)
+
+
 @app.route('/validate', methods=['POST'])
 def validate():
-    d1, d2, d3, d4, d5, d6 = request.form.get('d1'), request.form.get('d2'), request.form.get('d3'), request.form.get('d4'),request.form.get('d5'),request.form.get('d6')
+    d1, d2, d3, d4, d5, d6 = request.form.get('d1'), request.form.get('d2'), request.form.get('d3'), request.form.get(
+        'd4'), request.form.get('d5'), request.form.get('d6')
     otp = int(session['otp'])
     print('otp : ', type(otp))
-    otpp = int(d1+d2+d3+d4+d5+d6)
+    otpp = int(d1 + d2 + d3 + d4 + d5 + d6)
     print('otpp : ', type(otpp))
     if otp == otpp:
-        return render_template('change_password.html')
+        return render_template('change_password.html', authenticated=True)
     else:
-        return render_template('otp_request.html')
+        return render_template('otp_request.html', authenticated=True)
 
 
 @app.route('/change_password', methods=['POST'])
@@ -89,17 +101,17 @@ def change_password():
     if request.method == 'POST':
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
-        email_found = records.find_one({'email':email})
+        email_found = records.find_one({'email': email})
         if password1 != password2:
             message = 'Passwords should  match!'
-            return render_template('change_password.html', message=message)
+            return render_template('change_password.html', message=message, authenticated=True)
         else:
             hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
 
             email_found['password'] = hashed
 
             records.save(email_found)
-            return render_template('course.html')
+            return render_template('course.html', authenticated=True)
 
 
 @app.route('/reset_password_request', methods=['GET', 'POST'])
@@ -115,7 +127,7 @@ def reset_password_request():
             mail.send(msg)
             return render_template('otp_request.html')
         return redirect(url_for("reset_password_request"))
-    return render_template('reset_password_request.html')
+    return render_template('reset_password_request.html', authenticated=True)
 
 
 @app.route("/sign_up", methods=['post', 'get'])
@@ -162,11 +174,12 @@ def logged_in():
     if "email" in session:
         email = session["email"]
         name = session["name"]
-        authenticated = True
         course = records.find_one({'email': email})['course']
+        if not course: flash("You're not enrolled in any courses !", 'danger')
+
         print(type(course))
         # return render_template('profile.html', name=name.title(), email=email, authenticated=authenticated)
-        return render_template('dashboard.html', course=course)
+        return render_template('dashboard.html', course=course, authenticated=True)
     else:
         return redirect(url_for("sign_in"))
 
@@ -208,29 +221,87 @@ def logout():
         session.pop("email", None)
         return render_template("index.html")
     else:
-        return  redirect(url_for("sign_in"))
+        return redirect(url_for("sign_in"))
 
 
-@app.route('/enrol')
-@app.route('/enroll')
+def remove_data(data, index_list):
+    i = 0
+    data_dict = {}
+    for d in data:
+        data_dict.update({i: d})
+        i += 1
+
+    index_list.sort(reverse=True)
+    for idx in index_list:
+        try:
+            del data_dict[idx]
+        except KeyError:
+            pass
+
+    data = list(data_dict.values())
+    return data
+
+
+@app.route('/enroll', methods=["POST"])
 def enroll():
     if "email" in session:
+        course_list = request.form.getlist('check')
+        print("course_list : ", course_list)
         email = session['email']
         complt_data = session['course']
+        count = session['count']
+        complt_data_2 = []
+
+        for i in range(count):
+                if complt_data[i]['nested']:
+                    global videos
+                    videos = []
+                    for j in range(complt_data[i]['count']):
+                        if complt_data[i]['videos'][j]['skill'] in course_list:
+                            videos.append(complt_data[i]['videos'][j])
+                    if videos:
+                        complt_data_2.append({'nested': True, 'videos': videos, 'count': len(videos), 'skill': complt_data[i]['skill']})
+                else:
+                    if complt_data[i]['skill'] in course_list:
+                        complt_data_2.append(complt_data[i])
+
+
+        # for i in range(count):
+        #     rm_dict = {'main': i, 'sub': list()}
+        #     for topic in course_list:
+        #
+        #         if topic != complt_data[i]['skill']:
+        #
+        #             if not complt_data[i]['nested']:
+        #                 rm_idx.append(i)
+        #             else:
+        #                 for j in range(complt_data[i]['count']):
+        #                     if topic != complt_data[i]['videos'][j]['skill']:
+        #                         rm_dict['sub'].append(j)
+        #                 rm_dict['sub'] = list(set(rm_dict['sub']))
+        #                 if rm_dict not in rm_idx:
+        #                     rm_idx.append(rm_dict)
+        # print(rm_idx)
+        # for idx in rm_idx:
+        #     print('idx : ', idx)
+        #     if isinstance(idx, dict):
+        #         data = complt_data[idx['main']]['videos']
+        #         index_list = idx['sub']
+        #         return_data = remove_data(data, index_list)
+        #         complt_data[idx['main']]['videos'] = return_data
+        #         complt_data[idx['main']]['count'] = len(return_data)
+        #     else:
+        #         data =  complt_data
+        #         index_list = [idx]
+        #         return_data = remove_data(data, index_list)
+        #         complt_data = return_data
         skill = session['skill']
         userfound = records.find_one({'email': email})
         course = userfound['course']
-        print("first:\n\n")
-        pprint({"course": course})
-        course.append({'skill': skill, 'skill_data': complt_data})
-        print("second:\n\n")
-        pprint({"course": course})
+        course.append({'skill': skill, 'skill_data': complt_data_2})
 
         records.update_one({'email': email}, {"$set": {'course': course}})
         userfound = records.find_one({'email': email})
-        print("last:\n\n")
-        pprint({"course": userfound['course']})
-        # return render_template('')
     return redirect(url_for('sign_in'))
 
 
@@ -321,6 +392,8 @@ def process(keyword):
 @app.route('/', methods=['GET'])
 @app.route('/index ', methods=['GET'])
 def hello_world():
+    if "email" in session:
+        return render_template('index.html', authenticated=True)
     return render_template('index.html')
 
 
@@ -366,13 +439,15 @@ def my_form_post():
             print(j)
     # return render_template('index.html')
     flag = True
+    authenticated = False
     if "email" in session:
         flag = None
+        authenticated = True
     session['course'] = complt_data
+    session['count'] = len(complt_data)
     return render_template('shw.html', search_keyword=search_keyword.title(), complt_data=complt_data,
-                           data_count=len(complt_data), flag=flag)
+                           data_count=len(complt_data), flag=flag, authenticated=authenticated)
 
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
-

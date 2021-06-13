@@ -3,23 +3,20 @@
     "html",
     [
        "css",
-       "Bootstrap",
-       "Foundation"
+       "Bootstrap"
     ],
     [
       "javascript",
       "Jquery",
-      "angular",
-      "react",
-      "vue",
+      "angular.js",
+      "react.js",
+      "vue.js",
       "next.js"
     ],
     [
        "python",
        "Flask",
-       "Django",
-       "Bottle",
-       "Pyramid"
+       "Django"
     ],
     [
        "Nodejs",
@@ -37,8 +34,7 @@
     ],
 
      "SQL",
-     "MongoDb",
-     "Redis"
+     "MongoDb"
 
   ]
 }

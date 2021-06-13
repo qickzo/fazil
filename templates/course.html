@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Courses{% endblock %}
+{% block title %}{{ course_name }}{% endblock %}
 
 {% block content %}
 
@@ -36,20 +36,20 @@
 
                         {% if complt_data[i]['nested']  %}
 
-                        <div id="acrdn">
+                        <div id="acrdn{{ i }}">
                              {% for k in range(complt_data[i]['count']) %}
                                 <div class="card" style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
-                                    <div class="card-header bg-light" id="heading{{ k+100 }}">
+                                    <div class="card-header bg-light" id="heading{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}">
                                         <h5 class="mb-0">
-                                            <button class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ k+100 }}"
+                                            <button class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}"
                                                     aria-expanded="true"
-                                                    aria-controls="collapse{{ k+100 }}">
+                                                    aria-controls="collapse{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}">
                                                 {{ complt_data[i]['videos'][k]['skill'] }}
                                             </button>
                                         </h5>
                                     </div>
 
-                                    <div id="collapse{{ k+100 }}" class="collapse" aria-labelledby="heading{{ k+100 }}" data-parent="#acrdn">
+                                    <div id="collapse{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}" class="collapse" aria-labelledby="heading{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}" data-parent="#acrdn{{ i }}">
                                         <div class="card-body">
                                             {% for j in complt_data[i]['videos'][k] %}
                                             {% if j != 'skill' %}
