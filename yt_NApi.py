@@ -91,9 +91,9 @@ def validate():
     otpp = int(d1 + d2 + d3 + d4 + d5 + d6)
     print('otpp : ', type(otpp))
     if otp == otpp:
-        return render_template('change_password.html', authenticated=True)
+        return render_template('change_password.html', authenticated=False)
     else:
-        return render_template('otp_request.html', authenticated=True)
+        return render_template('otp_request.html', authenticated=False)
 
 
 @app.route('/change_password', methods=['POST'])
@@ -101,23 +101,23 @@ def change_password():
     if request.method == 'POST':
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
-        email_found = records.find_one({'email': email})
+        email_found = records.find_one({'email': session['reset_mail']})
         if password1 != password2:
             message = 'Passwords should  match!'
-            return render_template('change_password.html', message=message, authenticated=True)
+            return render_template('change_password.html', message=message, authenticated=False)
         else:
             hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
 
-            email_found['password'] = hashed
+            records.update_one({'email': session['reset_mail']}, {"$set": {'password': hashed}})
 
-            records.save(email_found)
-            return render_template('course.html', authenticated=True)
+            return redirect(url_for('sign_in'))
 
 
 @app.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
     if request.method == "POST":
         email = request.form.get("email")
+        session['reset_mail'] = email
         email_found = records.find_one({'email': email})
         if email_found:
             totp = pyotp.TOTP('base32secret3232')
@@ -127,7 +127,7 @@ def reset_password_request():
             mail.send(msg)
             return render_template('otp_request.html')
         return redirect(url_for("reset_password_request"))
-    return render_template('reset_password_request.html', authenticated=True)
+    return render_template('reset_password_request.html', authenticated=False)
 
 
 @app.route("/sign_up", methods=['post', 'get'])
