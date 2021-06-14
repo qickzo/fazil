@@ -19,7 +19,7 @@
                      style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
                     <div class="card-header bg-light" id="heading{{ i }}">
                         <h5 class="mb-0">
-                            <button type="button" class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ i }}"
+                            <button type="button" class="btn btn-link text-dark" data-toggle="collapse" data-target="#collapse{{ i }}"
                                     aria-expanded="true"
                                     aria-controls="collapse{{ i }}">
                                 {{ complt_data[i]['skill'] }}
@@ -45,7 +45,7 @@
                                 <div class="card" style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
                                     <div class="card-header bg-light" id="heading{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}">
                                         <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}"
+                                            <button type="button" class="btn btn-link text-dark " data-toggle="collapse" data-target="#collapse{{ complt_data[i]['videos'][k]['skill'] ~ k~100 }}"
                                                     aria-expanded="true"
                                                     aria-controls="collapse{{ k+100 }}">
                                                 {{ complt_data[i]['videos'][k]['skill'] }}
@@ -61,9 +61,9 @@
                                             <div class="container p-7 border-primary text-primary mt-5 text-white">
                                                 <h1>{{ complt_data[i]['videos'][k][j]['title'] }}</h1>
                                                 <div class="container my-5">
-                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                    <div class="embed-responsive embed-responsive-16by9" style="border-radius: 15px; overflow: hidden;box-shadow: 0 8px 12px 0 rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .3);">
 
-                                                        <iframe class="embed-responsive-item" style="align-content: center;"
+                                                        <iframe class="embed-responsive-item" style="align-content: center;box-shadow: 0 8px 12px 0 rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .3);"
                                                                 src="https://www.youtube.com/embed/{{ complt_data[i]['videos'][k][j]['v_id'] }}?rel=0&modestbranding=1"
                                                                 allowfullscreen></iframe>
                                                         <br><br>
@@ -92,9 +92,9 @@
                                 <div class="container p-7 border-primary text-primary mt-5 text-white">
                                     <h1>{{ complt_data[i][j]['title'] }}</h1>
                                     <div class="container my-5">
-                                        <div class="embed-responsive embed-responsive-16by9">
+                                        <div class="embed-responsive embed-responsive-16by9" style="border-radius: 15px; overflow: hidden;box-shadow: 0 8px 12px 0 rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .3);">
 
-                                            <iframe class="embed-responsive-item" style="align-content: center;"
+                                            <iframe class="embed-responsive-item" style="align-content: center;box-shadow: 0 8px 12px 0 rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .3);"
                                                     src="https://www.youtube.com/embed/{{ complt_data[i][j]['v_id'] }}?rel=0&modestbranding=1"
                                                     allowfullscreen></iframe>
                                             <br><br>

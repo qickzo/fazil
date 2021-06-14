@@ -25,10 +25,10 @@
             {% for skill in course %}
             <div class="card-header bg-light" id="heading{{ i }}" style="margin:5px">
                 <h5 class="mb-0">
-                    <button class="btn btn-link " data-toggle="collapse" data-target="#collapse{{ i }}"
+                    <button class="btn btn-link "  data-toggle="collapse" data-target="#collapse{{ i }}"
                             aria-expanded="true"
                             aria-controls="collapse{{ i }}">
-                        <a href="/course/{{ skill['skill'] }}">{{ skill['skill'] }}</a>
+                        <a href="/course/{{ skill['skill'] }}" style="color:#343a40;">{{ skill['skill'] }}</a>
                     </button>
                 </h5>
             </div>
@@ -38,7 +38,7 @@
         <br>
         <br>
         <br>
-        <br>
+
     </div>
 
 

@@ -251,7 +251,7 @@ def enroll():
         complt_data = session['course']
         count = session['count']
         complt_data_2 = []
-
+        pprint(complt_data)
         for i in range(count):
                 if complt_data[i]['nested']:
                     global videos
@@ -431,7 +431,7 @@ def my_form_post():
 
     else:
         f_data = process(search_keyword)
-        f_data.update({'skill': search_keyword.upper()})
+        f_data.update({'skill': search_keyword.upper(), 'nested': False})
         complt_data.append(f_data)
         pprint(complt_data)
 
