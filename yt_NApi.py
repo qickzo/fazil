@@ -30,6 +30,7 @@ db = client.get_database('User_accounts')
 records = db.register
 
 
+
 @app.context_processor
 def override_url_for():
     return dict(url_for=dated_url_for)
