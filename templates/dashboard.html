@@ -2,13 +2,16 @@
 {% block title %}Courses{% endblock %}
 
 {% block content %}
-<div
-        style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);">
+<div>
     <div class="container">
         <br>
         <br>
         <br>
-        <h2 class="ml-2 mb-3 " style="color:#0066cc;"><b>Enrolled Courses</b></h2>
+        <div class="row">
+        <h2 class="col-6 ml-2 mb-3 " style="color:#0066cc;"><b>Enrolled Courses</b></h2>
+            <div class="col-3"></div>
+        <a class="col-2" style="right:0px" href="/profile">Edit Your Account</a>
+        </div>
         <div id="accordion">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -25,7 +28,7 @@
             {% for skill in course %}
             <div class="card-header bg-light" id="heading{{ i }}" style="margin:5px">
                 <h5 class="mb-0">
-                    <button class="btn btn-link "  data-toggle="collapse" data-target="#collapse{{ i }}"
+                    <button class="btn btn-link text-dark"  data-toggle="collapse" data-target="#collapse{{ i }}"
                             aria-expanded="true"
                             aria-controls="collapse{{ i }}">
                         <a href="/course/{{ skill['skill'] }}" style="color:#343a40;">{{ skill['skill'] }}</a>

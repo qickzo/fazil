@@ -33,7 +33,19 @@
         width:3.8em; height:1.8em; padding:2px;font-size:14px;
         }
 
+.logo{
+color:#dc3545;
+}
+.logo:hover{
+color:white;
+}
 
+a font {
+color:white;
+}
+a font:hover{
+color:#dc3545;
+}
 
 
     </style>
@@ -42,14 +54,15 @@
 
 
 <!--border-top border-bottom border-secondary bg-dark-->
-<nav class="navbar navbar-light justify-content-between"
-     style="background: rgb(14,14,14);background: linear-gradient(rgba(26,26,26,1) 0%, rgba(14,14,14,1) 48%, rgba(26,26,26,1) 100%);">
-    <a class="navbar-brand  text-light ml-4 mt-2"><h3><b><i><span class="text-danger">Q</span>ick<span
-            class="text-danger">S</span>kill</i></b></h3></a>
-    <form class="navbar-toggler">
+<nav class="navbar bg-dark  justify-content-between"
+     style="">
+    <!--    background: rgb(14,14,14);background: linear-gradient(rgba(26,26,26,1) 0%, rgba(14,14,14,1) 48%, rgba(26,26,26,1) 100%);-->
+    <a class="navbar-brand  text-light ml-4 mt-2" href="/"><h3><b><i><span class="logo">Q</span><font>ick</font><span
+            class="logo">S</span><font>kill</font></i></b></h3></a>
+    <form >
         {% if authenticated %}
-        <img src="{{url_for('static',filename='img/user_avatar.png')}}" alt="avatar" style=""
-             class="rounded-circle  ml-4 mb-1" width="33"><br>
+        <a href=""><img src="{{url_for('static',filename='img/user_avatar.png')}}" alt="avatar" style=""
+                        class="rounded-circle  ml-4 mb-1" width="33"></a><br>
         <a href="/logout" class="btn text-white mr-1 mb-0 btn-danger mybtn "
            style="width:6em; height:1.9em; padding:2px;font-size:14px;" type="submit">Logout</a>
         {% else %}
@@ -67,8 +80,8 @@
 {% block content %}{% endblock %}
 
 <footer>
-    <div class="container-fluid "
-         style="position:fixed;bottom:0;background: rgb(14,14,14);background: linear-gradient(rgba(26,26,26,1) 0%, rgba(14,14,14,1) 48%, rgba(26,26,26,1) 100%);">
+    <div class="container-fluid bg-dark"
+         style="position:fixed;bottom:0;">
         <!--        <div class="row text-white">-->
 
         <!--            <div class="col-8 my-4"><h4><b><i><span class="text-danger">Q</span>ick<span-->
@@ -81,7 +94,8 @@
         <!--                </div>-->
         <!--            </div>-->
 
-        <div class="text-white col-12"><small class="text-sm"> &#xa9; copyright 2020</small> <a class="text-light" href="http://qickzo.com/"><small
+        <div class="text-white col-12"><small class="text-sm"> &#xa9; copyright 2020</small> <a class="text-light"
+                                                                                                href="http://qickzo.com/"><small
                 class="float-right mr-2 "><b><i> <span class="text-danger">Q</span>ick<span
                 class="text-danger">Z</span>o</i></b></small></a></div>
     </div>

@@ -1,20 +1,20 @@
 {
   "topic": [
-    "html",
+    "HTML",
     [
-       "css",
+       "CSS",
        "Bootstrap"
     ],
     [
-      "javascript",
+      "JavaScript",
       "Jquery",
-      "angular.js",
-      "react.js",
-      "vue.js",
-      "next.js"
+      "Angular.js",
+      "React.js",
+      "Vue.js",
+      "Next.js"
     ],
     [
-       "python",
+       "Python",
        "Flask",
        "Django"
     ],
@@ -24,13 +24,12 @@
     ],
     [
         "PHP",
-        "laravel",
-        "codeigniter"
+        "Laravel",
+        "Codeigniter"
     ],
     [
        "Ruby",
-       "Ruby on Rails",
-       "Sinatra"
+       "Ruby on Rails"
     ],
 
      "SQL",

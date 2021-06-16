@@ -33,12 +33,12 @@ border-radius: 2rem;
 </head>
 
 <body>
-<nav class="navbar navbar-light justify-content-between"
-     id="grad">
-    <a class="navbar-brand col-6  text-light ml-4 mt-2"><h3><b><i><span class="text-danger">Q</span>ick<span
-            class="text-danger">S</span>kill</i></b></h3></a>
+<nav class="navbar navbar-light justify-content-between bg-dark">
+<!--    id="grad"-->
+    <a class="navbar-brand col-6  text-light ml-4 mt-2"><h3><b><i><span style="color:#cc0202">Q</span>ick<span
+            style="color:#cc0202">S</span>kill</i></b></h3></a>
 
-    <form class="navbar-toggler">
+    <form>
         {% if authenticated %}
         <img src="{{url_for('static',filename='img/user_avatar.png')}}" alt="avatar" style=""
              class="rounded-circle  ml-4 mb-1" width="33"><br>
@@ -100,8 +100,8 @@ border-radius: 2rem;
 <!--</div>-->
 
 <footer>
-    <div class="container-fluid "
-         style="position:fixed;bottom:0;background: rgb(14,14,14);background: linear-gradient(rgba(26,26,26,1) 0%, rgba(14,14,14,1) 48%, rgba(26,26,26,1) 100%);">
+    <div class="container-fluid bg-dark"
+         style="position:fixed;bottom:0;">
         <!--        <div class="row text-white">-->
 
         <!--                    <div class="col-8 my-4"><h4><b><i><span class="text-danger">Q</span>ick<span-->

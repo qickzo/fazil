@@ -49,37 +49,37 @@ allowed_categid = [27, 28]
 courses = ['web development', 'app development']
 
 
-@app.route('/test', methods=['GET', 'POST'])
-def test():
-    if request.method == 'POST':
-        print(request.form.get('hello'))
-
-    return render_template('test.html')
-
-
 @app.route('/delete/<course_name>')
 def delete(course_name):
-    email = session['email']
-    userfound = records.find_one({'email': email})
-    course = userfound['course']
-    for sk in course:
-        if sk['skill'] == course_name:
-            index = course.index(sk)
-            course.remove(course[index])
-    records.update_one({'email': email}, {"$set": {'course': course}})
-    return redirect(url_for("logged_in"))
+    if 'email' in session:
+        email = session['email']
+        userfound = records.find_one({'email': email})
+        course = userfound['course']
+        for sk in course:
+            if sk['skill'] == course_name:
+                index = course.index(sk)
+                course.remove(course[index])
+        records.update_one({'email': email}, {"$set": {'course': course}})
+        return redirect(url_for("logged_in"))
+    else:
+        return redirect(url_for('sign_in'))
 
 
 @app.route('/course/<course_name>')
 def course(course_name):
-    email = session['email']
-    userfound = records.find_one({'email': email})
-    course = userfound['course']
-    for sk in course:
-        if sk['skill'] == course_name: c_data = sk['skill_data']
+    if 'email' in session:
+        email = session['email']
+        userfound = records.find_one({'email': email})
+        course = userfound['course']
+        c_data = None
+        for sk in course:
+            if sk['skill'] == course_name:
+                c_data = sk['skill_data']
 
-    return render_template('course.html', search_keyword=course_name.title(), complt_data=c_data,
-                           data_count=len(c_data), course_name=course_name, authenticated=True)
+        return render_template('course.html', search_keyword=course_name.title(), complt_data=c_data,
+                               data_count=len(c_data), course_name=course_name, authenticated=True)
+    else:
+        return redirect(url_for('sign_in'))
 
 
 @app.route('/validate', methods=['POST'])
@@ -169,6 +169,31 @@ def sign_up():
     return render_template('signup.html')
 
 
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    if request.method == 'POST':
+        password1 = request.form.get('password1')
+        name = request.form.get('name')
+        old_name = session['name']
+        session['name'] = name.title()
+        password2 = request.form.get('password2')
+        if password1 != password2:
+            message = 'Passwords should  match!'
+            return render_template('profile.html', name=old_name, message=message, authenticated=True)
+
+        else:
+            hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
+
+            records.update_one({'email': session['email']}, {"$set": {'password': hashed, 'name': name}})
+
+            return render_template('profile.html', name=name, email=session['email'],
+                                   authenticated=True)
+
+    if 'email' in session:
+        return render_template('profile.html', name=session['name'].title(), email=session['email'], authenticated=True)
+    return redirect(url_for('sign_in'))
+
+
 @app.route('/courses')
 def logged_in():
     if "email" in session:
@@ -253,18 +278,18 @@ def enroll():
         complt_data_2 = []
         pprint(complt_data)
         for i in range(count):
-                if complt_data[i]['nested']:
-                    global videos
-                    videos = []
-                    for j in range(complt_data[i]['count']):
-                        if complt_data[i]['videos'][j]['skill'] in course_list:
-                            videos.append(complt_data[i]['videos'][j])
-                    if videos:
-                        complt_data_2.append({'nested': True, 'videos': videos, 'count': len(videos), 'skill': complt_data[i]['skill']})
-                else:
-                    if complt_data[i]['skill'] in course_list:
-                        complt_data_2.append(complt_data[i])
-
+            if complt_data[i]['nested']:
+                global videos
+                videos = []
+                for j in range(complt_data[i]['count']):
+                    if complt_data[i]['videos'][j]['skill'] in course_list:
+                        videos.append(complt_data[i]['videos'][j])
+                if videos:
+                    complt_data_2.append(
+                        {'nested': True, 'videos': videos, 'count': len(videos), 'skill': complt_data[i]['skill']})
+            else:
+                if complt_data[i]['skill'] in course_list:
+                    complt_data_2.append(complt_data[i])
 
         # for i in range(count):
         #     rm_dict = {'main': i, 'sub': list()}
@@ -415,7 +440,7 @@ def my_form_post():
                 for sub_skill in skill:
                     print('************************{}*************************'.format(sub_skill))
                     f_data = process(sub_skill)  # .replace('\n', ''))
-                    f_data.update({'skill': sub_skill.upper()})
+                    f_data.update({'skill': sub_skill})
                     if skill.index(sub_skill) == 0:
                         sub_data.update({'skill': sub_skill})
                     # else:
@@ -426,12 +451,12 @@ def my_form_post():
             else:
                 print('************************{}*************************'.format(skill.replace('\n', '')))
                 f_data = process(skill)
-                f_data.update({'skill': skill.upper(), 'nested': False})
+                f_data.update({'skill': skill, 'nested': False})
                 complt_data.append(f_data)
 
     else:
         f_data = process(search_keyword)
-        f_data.update({'skill': search_keyword.upper(), 'nested': False})
+        f_data.update({'skill': search_keyword, 'nested': False})
         complt_data.append(f_data)
         pprint(complt_data)
 

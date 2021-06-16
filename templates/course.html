@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container-fluid bg-light">
     <div style="">
         <div class="container">
             <br>
@@ -15,9 +15,9 @@
 
                 {% for i in range(data_count) %}
 
-                <div class="card" style="background:#f7f7f5">
+                <div class="card" >
                     <!--                    style="background: rgb(166,168,168);background: linear-gradient(90deg, rgba(166,168,168,1) 0%, rgba(230,229,229,1) 49%, rgba(166,168,168,1) 100%);"-->
-                    <div class="card-header" style="background:#edece8" id="heading{{ i }}">
+                    <div class="card-header"  id="heading{{ i }}">
                         <h5 class="mb-0">
                             <button class="btn btn-link text-dark " data-toggle="collapse"
                                     data-target="#collapse{{ i }}"
