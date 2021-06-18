@@ -92,15 +92,26 @@
         }
 
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 </style>
 
 {% block content %}
-
+<div style="padding-top:10%">
+<div class="d-flex justify-content-center">
   <form action="/validate" method="post">
          <h5> One-time password has been sent to the email id. Please check the email for the verification.</h5>
 
-    <div  style="padding-left:35%; padding-top:18%;">
+    <div  class="text-center mt-4 pt-4">
 
         <div>
 
@@ -112,11 +123,12 @@
             <input type="text"  name="d5"maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
             <input type="text" name="d6" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
             <br>
-      <button style="margin-top: 6%;margin-left: 18%;" class="btn btn-primary btn-embossed">Verify</button>
+      <button class="btn btn-primary text-center mt-3 btn-embossed">Verify</button>
     </div>
     </div>
 
-  </form>
+  </form></div>
+
 </div>
 
 

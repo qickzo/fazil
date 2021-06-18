@@ -33,12 +33,12 @@ border-radius: 2rem;
 </head>
 
 <body>
-<nav class="navbar navbar-light justify-content-between " STYLE="background:#47154f">
+<nav class="navbar navbar-light justify-content-between bg-dark">
 <!--    id="grad"-->
     <a class="navbar-brand col-6  text-light ml-4 mt-2"><h3><b><i><span style="color:#cc0202">Q</span>ick<span
             style="color:#cc0202">S</span>kill</i></b></h3></a>
 
-    <form>
+    <form class="navbar-text">
         {% if authenticated %}
         <img src="{{url_for('static',filename='img/user_avatar.png')}}" alt="avatar" style=""
              class="rounded-circle  ml-4 mb-1" width="33"><br>
