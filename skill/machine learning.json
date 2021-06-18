@@ -1,0 +1,31 @@
+{
+  "topic":
+          [
+            [
+            "PYTHON",
+            "SCIKIT-LEARN",
+
+              "NUMPY",
+              "PANDAS",
+              "MATPLOTLIB",
+              "KERAS"
+          ],
+            "Linear Algebra for Machine Learning",
+            " Statistics for Machine Learning",
+            [
+              
+	            "Gradient Descent",
+	            "Slope",
+	            "Supervised vs Unsupervised learning",
+	            "Reinforcement Learning",
+	            "Basic Linear Regression",
+	            "Clustering"
+              ],
+            [
+              
+             "Docker",
+              "Kubernetes"
+            ]
+  ]
+
+}

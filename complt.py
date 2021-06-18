@@ -1,4 +1,3 @@
-
 complt_data = [
     {
         'count': 2,
@@ -66,7 +65,7 @@ complt_data = [
                     'v_id': 'yfoY53QXEnI',
                     'view_count': '2988460'
                 }
-            }, #css 0
+            },  # css 0
             {
                 '4sosXZsdy-s': {
                     'chnlid': 'UC29ju8bIPH5as8OGnQzwJyA',
@@ -129,10 +128,10 @@ complt_data = [
                     'v_id': 'yZnNnvXO8HI',
                     'view_count': '334162'
                 }
-            }   #bootstrap 1
+            }  # bootstrap 1
         ]
-    }, # nested 0
-    {   # HTML
+    },  # nested 0
+    {  # HTML
         '2nucjefSr6I': {
             'chnlid': 'UC5DNytAJ6_FISueUfzZCVsw',
             'cid': 27,
@@ -192,7 +191,233 @@ complt_data = [
             'view_count': '735019'
         },
         'skill': 'HTML'
-    } # normal  1
+    }  # normal  1
+]
+
+complt_data = [
+    {
+        'count': 3,
+        'nested': True,
+        'skill': 'js',
+        'videos': [
+            {
+        'id1': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id2': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id3': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id4': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id5': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'nested': False,
+        'skill': '.........'
+    }, # js
+            {
+        'id1': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id2': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id3': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id4': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id5': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'nested': False,
+        'skill': '.........'
+    }, # jquery
+            {
+        'id1': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id2': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id3': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id4': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id5': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'nested': False,
+        'skill': '.........'
+    }  # angular
+         ] # normal  # normal]
+    },  # nested
+    {
+        'id1': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id2': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id3': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id4': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'id5': {
+            'channelid': '.......',
+            'categoryid': 27,
+            'lang': '.........',
+            'like': 23423,
+            'dislike': 23423,
+            'title': '.............',
+            'views': 45678,
+            'url': '...................'
+        },
+        'nested': False,
+        'skill': '.........'
+    }  # normal
 ]
 
 # rm_list = ['CSS', 'JAVASCRIPT']
@@ -335,7 +560,7 @@ complt_data = [
 # print(type(t))
 
 d = {
-    'name':'dishad',
+    'name': 'dishad',
     'age': 12,
     'place': 'vengad'
 }

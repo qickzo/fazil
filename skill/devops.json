@@ -1,0 +1,47 @@
+{
+  "topic": [
+    [
+      "Python",
+      "Ruby",
+      "Node.js",
+      "C++"
+    ],
+    "Virtualisation",
+    "I/O Management",
+    "Process Management",
+    "Threads and Concurrency",
+    "Memory/Storage",
+    "File Systems",
+    "Sockets",
+    "Linux",
+    "Bash Scripting",
+    "Vim/Nano/Power shell/Emacs",
+    "Networking and Security",
+    "Apache",
+    "Nginx",
+    "Reverse Proxy",
+      "Caching Server",
+      "Forward Proxy",
+      "Load Balancer",
+      "Firewall",
+    [
+      "Docker",
+      "Kubernets"
+    ],
+    "Ansible",
+    "Terraform",
+    [
+      "Jenkins",
+      "Teamcity",
+      "Circle CI"
+    ],
+    [
+      "AWS",
+      "Google Cloud",
+      "Alibaba Cloud",
+      "Microsoft Cloud",
+      "IBM Cloud"
+    ]
+
+  ]
+}

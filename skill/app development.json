@@ -1,15 +1,40 @@
 {
   "topic": [
+  [
 
+"java",
+ "Angular",
+ "Spring",
+ "JavaServer Faces [JSF]",
+ "Grails",
+ "Vaadin",
+ "GWT"
+  ],
     [
-       "css",
-       "Bootstrap"
+      "kotlin",
+      "Spring",
+      "ktor",
+      "vertex"
     ],
-      "javascript",
+
+  "React Native",
+  "Objective-C",
+  "swift",
+  "Flutter" ,
     [
-      "flask",
-      "django"
+      "Sketch",
+      "BuildFire",
+      "Adobe Experience Design",
+      "Axure RP",
+      "Marvel"
+    ],
+    [
+      "MySQL",
+      "PostgreSQL",
+      "Redis",
+      "MongoDB"
     ]
 
   ]
+
 }

@@ -11,10 +11,14 @@
         </div>
         <div class="container">
             <div class="row border border-dark">
-                <div class="col-12 mt-5 pt-2 text-secondary" style="padding-left:3%">
-                    <h3> Edit Your Account</h3>
+                <div class="col-11 mt-5 pt-2 text-secondary" style="padding-left:3%">
+                    <div class="row">
+                        <h3 class="col-5"> Edit Your Account</h3>
+                        <div class="col-5"></div>
+                        <a class="col-2" style=" padding-left:5%" href="/courses">Go back</a>
+                    </div>
                 </div>
-                <div class="col-md-8 col-sm-12 col-12" style="padding-top:2%;padding-bottom:5%;padding-left:3%;">
+                <div class="col-md-10 col-sm-12 col-12" style="padding-top:2%;padding-bottom:5%;padding-left:3%;">
 
                     <form action="/profile" method="post">
                         <div class="form-group">
@@ -33,7 +37,7 @@
                                    placeholder="Retype Password">
                         </div>
                         {% if message %}
-                            <p style=" color:red;   margin-left: 42%;">{{ message }}</p>
+                        <p style=" color:red;   margin-left: 42%;">{{ message }}</p>
                         {% endif %}
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

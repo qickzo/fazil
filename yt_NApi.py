@@ -177,16 +177,18 @@ def profile():
         old_name = session['name']
         session['name'] = name.title()
         password2 = request.form.get('password2')
-        if password1 != password2:
-            message = 'Passwords should  match!'
-            return render_template('profile.html', name=old_name, message=message, authenticated=True)
+        if password1:
+            if password1 != password2:
+                message = 'Passwords should be match!'
+                return render_template('profile.html', name=old_name, message=message, authenticated=True)
 
+            else:
+                hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
+                records.update_one({'email': session['email']}, {"$set": {'password': hashed, 'name': name}})
         else:
-            hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
+            records.update_one({'email': session['email']}, {"$set": { 'name': name}})
 
-            records.update_one({'email': session['email']}, {"$set": {'password': hashed, 'name': name}})
-
-            return render_template('profile.html', name=name, email=session['email'],
+        return render_template('profile.html', name=name, email=session['email'],
                                    authenticated=True)
 
     if 'email' in session:
@@ -456,7 +458,7 @@ def my_form_post():
 
     else:
         f_data = process(search_keyword)
-        f_data.update({'skill': search_keyword, 'nested': False})
+        f_data.update({'skill': search_keyword.title(), 'nested': False})
         complt_data.append(f_data)
         pprint(complt_data)
 
