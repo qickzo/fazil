@@ -104,11 +104,11 @@
                                         <br><br>
                                     </div>
                                 </div>
-                                <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
                                 <div class="llikedislike " >
-                                    <i class="fa fa-eye fa_custom fa-x" >{{ complt_data[i][j]['view_count'] }}</i>
-                                    <i class="fa fa-thumbs-o-up" aria-hidden="true">{{ complt_data[i][j]['like_count'] }}</i>
-                                    <i class="fa fa-thumbs-o-down" aria-hidden="true" >{{ complt_data[i][j]['dislike_count'] }}</i>
+
+                                    <img src="{{url_for('static', filename='img/ei.png')}}">{{ complt_data[i][j]['view_count'] }}
+                                    <img  src="{{url_for('static', filename='img/ico.png')}}">{{ complt_data[i][j]['like_count'] }}
+                                    <img style="margin-left:23;" src="{{url_for('static', filename='img/icons8.png')}}">{{ complt_data[i][j]['dislike_count'] }}</i>
 
                                 </div>
                                 <h3><a href="{{ complt_data[i][j]['url'] }}">url</a></h3>
